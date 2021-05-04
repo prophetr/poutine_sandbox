@@ -16,13 +16,13 @@ macros:
       ```
 
       The append parameter is best set to `true` as some databases such as
-      Snowflake strips out the first comment from history logs for security 
-      reasons. This parameter ensures the query comment is appended at the 
+      Snowflake strips out the first comment from history logs for security
+      reasons. This parameter ensures the query comment is appended at the
       bottom of the SQL query.
     docs:
       show: false
     arguments:
       - name: node
         type: string
-        description: > 
+        description: >
           The argument _must_ be the `node` context.
