@@ -10,3 +10,4 @@ packages:
 
   - package: tailsdotcom/dbt_artifacts
     version: 0.5.0
+
