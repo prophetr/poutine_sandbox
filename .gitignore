@@ -1,2 +1,7 @@
 # virtual environment
-\venv
+venv/
+
+#dbt
+target/
+dbt_modules/
+logs/
