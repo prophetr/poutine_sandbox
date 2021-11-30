@@ -18,8 +18,8 @@ query-comment:
   comment: "{{ query_comment(node) }}"
   append: true
 
-# Require dbt 0.19.x
-require-dbt-version: [">=0.19.0", "<0.20.0"]
+# Require dbt 0.20.x
+require-dbt-version: [">=0.20.0", "<0.21.0"]
 
 # Variables
 vars:
