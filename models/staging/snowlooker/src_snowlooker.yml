@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: snowlooker
+    description: data taken from looker
+    database: dbt_poutineshop_raw
+    schema: raw_data
+    tables:
+      - name: distribution_centers
+        identifier: distribution_centers
+      - name: events
+        identifier: events
+      - name: inventory_items
+        identifier: inventory_items
+      - name: order_items
+        identifier: order_items
+      - name: products
+        identifier: products
+      - name: users
+        identifier: users
