@@ -1,9 +1,9 @@
 # These are base configs for dbt.
 # You probably won't need to change these!
-name: 'poutineshop'
+name: 'poutine_shop'
 version: '1.0.0'
 config-version: 2
-profile: 'poutineshop'
+profile: 'poutine_shop'
 source-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
@@ -14,4 +14,16 @@ target-path: "target"
 clean-targets: ["target", "dbt_modules"]
 
 # Require dbt 0.19.x
-require-dbt-version: [">=0.19.0", "<0.20.0"]
+require-dbt-version: [">=0.20.0", "<0.21.0"]
+
+# ==================
+# Model Configs
+# ==================
+
+models:
+  poutine_shop:
+    # marts:
+    #     core:
+    #         +materialized: table
+    staging:
+        +materialized: view
