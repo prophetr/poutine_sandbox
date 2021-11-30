@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_users
+    description: TODO #TODO
+    columns:
+      - name: user_id
+        description: TODO #TODO
+      - name: first_name
+        description: TODO #TODO
+      - name: last_name
+        description: TODO #TODO
+      - name: email
+        description: TODO #TODO
+      - name: age
+        description: TODO #TODO
+      - name: city
+        description: TODO #TODO
+      - name: state
+        description: TODO #TODO
+      - name: country
+        description: TODO #TODO
+      - name: zip
+        description: TODO #TODO
+      - name: latitude
+        description: TODO #TODO
+      - name: longitude
+        description: TODO #TODO
+      - name: gender
+        description: TODO #TODO
+      - name: created_at
+        description: TODO #TODO
+      - name: traffic_source
+        description: TODO #TODO
