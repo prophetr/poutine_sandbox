@@ -14,7 +14,7 @@ with users as (
         gender,
         created_at,
         traffic_source
-    from {{ source('snowlooker','users') }}
+    from {{ source('ecommerce_backend','users') }}
 )
 
 select * from users

@@ -1,12 +1,25 @@
+/*------------------------------------------------------------------------------
+
+DIRTY DATA
+
+The purpose of this file is to inject incorrect data into tables in the 
+ecommerce_backend schema to demo how DBT test feature works.
+
+Tables effected: products, order_items & inventory_items
+
+!! Note: For reference only !!
+
+------------------------------------------------------------------------------*/
+
 use warehouse "COMPUTE_WH";
 use database "DBT_POUTINESHOP_RAW";
 use schema "RAW_DATA";
 
-"DBT_POUTINESHOP_DEV"
-------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- products
-------------------------------------------------------------------------------
-select * from "DBT_POUTINESHOP_RAW"."RAW_DATA"."PRODUCTS" where id in (11033, 425, 1009, 8903, 29000, 100, 18166, 683, 14717, 27398);
+--------------------------------------------------------------------------------
+select * from "DBT_POUTINESHOP_RAW"."RAW_DATA"."PRODUCTS" 
+where id in (11033, 425, 1009, 8903, 29000, 100, 18166, 683, 14717, 27398);
 
 ---- break not null test
 update "DBT_POUTINESHOP_RAW"."RAW_DATA"."PRODUCTS"
@@ -38,14 +51,15 @@ update "DBT_POUTINESHOP_RAW"."RAW_DATA"."PRODUCTS"
     set distribution_center_id = 9001
     where id  = 11033;
 
-------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- order_items
-------------------------------------------------------------------------------
-select * from "DBT_POUTINESHOP_RAW"."RAW_DATA"."ORDER_ITEMS" where id in (298433, 56567, 68410, 84202, 289395);
+--------------------------------------------------------------------------------
+select * from "DBT_POUTINESHOP_RAW"."RAW_DATA"."ORDER_ITEMS" 
+where id in (298433, 56567, 68410, 84202, 289395);
 
----- break accepted_values test
+---- break accepted_values with null
 update "DBT_POUTINESHOP_RAW"."RAW_DATA"."ORDER_ITEMS"
-    set status = 'Test'
+    set status = NULL
     where id in (298433, 56567, 68410, 84202);
 
 ---- break not null test
@@ -53,10 +67,11 @@ update "DBT_POUTINESHOP_RAW"."RAW_DATA"."ORDER_ITEMS"
     set order_id = NULL
     where id = 289395;
     
-------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- inventory_items
-------------------------------------------------------------------------------
-select * from "DBT_POUTINESHOP_RAW"."RAW_DATA"."INVENTORY_ITEMS" where id in (288038, 218960, 325238, 45766, 99912);
+--------------------------------------------------------------------------------
+select * from "DBT_POUTINESHOP_RAW"."RAW_DATA"."INVENTORY_ITEMS" 
+where id in (288038, 218960, 325238, 45766, 99912);
 
 ---- break not null test
 update "DBT_POUTINESHOP_RAW"."RAW_DATA"."INVENTORY_ITEMS"

@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: snowlooker
+  - name: ecommerce_backend
     description: data taken from looker
     database: dbt_poutineshop_raw
     schema: raw_data

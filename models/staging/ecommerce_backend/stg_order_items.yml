@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_order_items
+    description: Table containing order item information
+    columns:
+      - name: order_item_id
+        description: '{{ doc("ecommerce_backend__order_item_id") }}'
+      - name: order_id
+        description: '{{ doc("ecommerce_backend__order_id") }}'
+      - name: user_id
+        description: '{{ doc("ecommerce_backend__user_id") }}'
+      - name: inventory_item_id
+        description: '{{ doc("ecommerce_backend__inventory_item_id") }}'
+      - name: sale_price
+        description: '{{ doc("ecommerce_backend__sale_price") }}'
+      - name: status
+        description: '{{ doc("ecommerce_backend__status") }}'
+      - name: created_at
+        description: '{{ doc("ecommerce_backend__created_at") }}'
+      - name: returned_at
+        description: '{{ doc("ecommerce_backend__returned_at") }}'
+      - name: shipped_at
+        description: '{{ doc("ecommerce_backend__shipped_at") }}'
+      - name: delivered_at
+        description: '{{ doc("ecommerce_backend__delivered_at") }}'

@@ -12,7 +12,7 @@ with inventory_items as (
         product_department,
         product_sku,
         product_distribution_center_id
-    from {{ source('snowlooker', 'inventory_items') }}
+    from {{ source('ecommerce_backend', 'inventory_items') }}
 )
 
 select * from inventory_items

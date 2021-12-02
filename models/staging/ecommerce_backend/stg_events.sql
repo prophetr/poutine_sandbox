@@ -17,7 +17,7 @@ with events as (
         user_id,
         uri,
         event_type
-    from {{ source('snowlooker', 'events') }}
+    from {{ source('ecommerce_backend', 'events') }}
 )
 
 select * from events

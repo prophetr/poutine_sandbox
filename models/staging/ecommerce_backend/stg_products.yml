@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: TODO #TODO
+    columns:
+      - name: product_id
+        description: '{{ doc("ecommerce_backend__product_id") }}'
+      - name: cost
+        description: '{{ doc("ecommerce_backend__cost") }}'
+      - name: category
+        description: '{{ doc("ecommerce_backend__category_product") }}'
+      - name: product_name
+        description: '{{ doc("ecommerce_backend__name_product") }}'
+      - name: brand
+        description: '{{ doc("ecommerce_backend__brand_product") }}'
+      - name: retail_price
+        description: '{{ doc("ecommerce_backend__retail_price_product") }}'
+      - name: department
+        description: '{{ doc("ecommerce_backend__department_product") }}'
+      - name: sku
+        description: '{{ doc("ecommerce_backend__sku_product") }}'
+      - name: distribution_center_id
+        description: '{{ doc("ecommerce_backend__distribution_center_id") }}'

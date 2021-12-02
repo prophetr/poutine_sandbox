@@ -10,7 +10,7 @@ with order_items as (
         returned_at,
         shipped_at,
         delivered_at
-    from {{ source('snowlooker','order_items') }}
+    from {{ source('ecommerce_backend','order_items') }}
 )
 
 select * from order_items

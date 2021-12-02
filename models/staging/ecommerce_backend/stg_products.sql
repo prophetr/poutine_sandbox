@@ -9,7 +9,7 @@ with products as (
         department,
         sku,
         distribution_center_id
-    from {{ source('snowlooker', 'products') }}
+    from {{ source('ecommerce_backend', 'products') }}
 )
 
 select * from products

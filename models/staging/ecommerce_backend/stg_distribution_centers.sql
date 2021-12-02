@@ -4,7 +4,7 @@ with distribution_centers as (
         name as location_name,
         latitude,
         longitude
-    from {{ source('snowlooker', 'distribution_centers') }}
+    from {{ source('ecommerce_backend', 'distribution_centers') }}
 )
 
 select * from distribution_centers
