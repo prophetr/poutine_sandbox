@@ -1,7 +1,7 @@
 version: 2
 
 macros:
-  - name: query_comment
+  - name: query_comments
     description: >
       This macro must be used in conjunction with the query_comment feature
       of dbt.

@@ -6,6 +6,9 @@ models:
     columns:
       - name: product_id
         description: '{{ doc("ecommerce_backend__product_id") }}'
+        tests: 
+          - unique
+          - not_null
       - name: cost
         description: '{{ doc("ecommerce_backend__cost") }}'
       - name: category
@@ -19,6 +22,15 @@ models:
       - name: department
         description: '{{ doc("ecommerce_backend__department_product") }}'
       - name: sku
+        tests: 
+          - unique
+          - not_null
         description: '{{ doc("ecommerce_backend__sku_product") }}'
       - name: distribution_center_id
         description: '{{ doc("ecommerce_backend__distribution_center_id") }}'
+        tests: 
+          - not_null
+          - relationships:
+              to: ref('stg_distribution_centers')
+              field: distribution_center_id
+

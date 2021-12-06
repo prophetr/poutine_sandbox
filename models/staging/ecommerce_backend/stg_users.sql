@@ -1,4 +1,8 @@
 with users as (
+    select * from {{ source('ecommerce_backend','users') }}
+),
+
+final as (
     select
         id as user_id,
         first_name,
@@ -14,7 +18,8 @@ with users as (
         gender,
         created_at,
         traffic_source
-    from {{ source('ecommerce_backend','users') }}
+        
+    from users
 )
 
-select * from users
+select * from final

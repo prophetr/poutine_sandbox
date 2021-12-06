@@ -6,10 +6,17 @@ models:
     columns:
       - name: event_id
         description: '{{ doc("ecommerce_backend__event_id") }}'
+        tests: 
+          - unique
+          - not_null
       - name: sequence_number
         description: '{{ doc("ecommerce_backend__sequence_number_events") }}'
+        tests: 
+          - not_null
       - name: session_id
         description: '{{ doc("ecommerce_backend__session_id_events") }}'
+        tests: 
+          - not_null
       - name: created_at
         description: '{{ doc("ecommerce_backend__created_at") }}'
       - name: ip_address

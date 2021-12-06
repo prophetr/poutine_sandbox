@@ -1,4 +1,8 @@
 with inventory_items as (
+    select * from {{ source('ecommerce_backend', 'inventory_items') }}
+),
+
+final as (
     select
         id as inventory_item_id,
         product_id,
@@ -12,7 +16,9 @@ with inventory_items as (
         product_department,
         product_sku,
         product_distribution_center_id
-    from {{ source('ecommerce_backend', 'inventory_items') }}
+
+    from inventory_items
+    where inventory_item_id not in (288038, 218960, 325238, 45766, 99912)
 )
 
-select * from inventory_items
+select * from final

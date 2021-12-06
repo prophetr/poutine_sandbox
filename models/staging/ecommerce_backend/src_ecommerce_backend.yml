@@ -2,19 +2,90 @@ version: 2
 
 sources:
   - name: ecommerce_backend
-    description: data taken from looker
+    description: Data from Poutine Shop ecommerce backend
     database: dbt_poutineshop_raw
     schema: raw_data
     tables:
       - name: distribution_centers
         identifier: distribution_centers
+        columns:
+          - name: id
+          - name: name
+          - name: latitude
+          - name: longitude
       - name: events
         identifier: events
+        columns:
+          - name: id
+          - name: sequence_number
+          - name: session_id
+          - name: created_at
+          - name: ip_address
+          - name: city
+          - name: state
+          - name: country
+          - name: zip
+          - name: latitude
+          - name: longitude
+          - name: os
+          - name: browser
+          - name: traffic_source
+          - name: user_id
+          - name: uri
+          - name: event_type
       - name: inventory_items
         identifier: inventory_items
+        columns:
+          - name: id
+          - name: product_id
+          - name: created_at
+          - name: sold_at
+          - name: cost
+          - name: product_category
+          - name: product_name
+          - name: product_brand
+          - name: product_retail_price
+          - name: product_department
+          - name: product_sku
+          - name: product_distribution_center_id
       - name: order_items
         identifier: order_items
+        columns:
+          - name: id
+          - name: order_id
+          - name: user_id
+          - name: inventory_item_id
+          - name: sale_price
+          - name: status
+          - name: created_at
+          - name: returned_at
+          - name: shipped_at
+          - name: delivered_at
       - name: products
         identifier: products
+        columns:
+          - name: id
+          - name: cost
+          - name: category
+          - name: name
+          - name: brand
+          - name: retail_price
+          - name: department
+          - name: sku
+          - name: distribution_center_id
       - name: users
         identifier: users
+        columns:
+          - name: id
+          - name: first_name
+          - name: last_name
+          - name: email
+          - name: age
+          - name: city
+          - name: state
+          - name: country
+          - name: latitude
+          - name: longitude
+          - name: gender
+          - name: created_at
+          - name: traffic_source

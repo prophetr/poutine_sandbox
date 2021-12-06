@@ -57,9 +57,9 @@ update "DBT_POUTINESHOP_RAW"."RAW_DATA"."PRODUCTS"
 select * from "DBT_POUTINESHOP_RAW"."RAW_DATA"."ORDER_ITEMS" 
 where id in (298433, 56567, 68410, 84202, 289395);
 
----- break accepted_values with null
+---- break accepted_values with test
 update "DBT_POUTINESHOP_RAW"."RAW_DATA"."ORDER_ITEMS"
-    set status = NULL
+    set status = 'Test'
     where id in (298433, 56567, 68410, 84202);
 
 ---- break not null test

@@ -6,6 +6,9 @@ models:
     columns:
       - name: distribution_center_id
         description: '{{ doc("ecommerce_backend__distribution_center_id") }}'
+        tests:
+          - unique
+          - not_null
       - name: location_name
         description: '{{ doc("ecommerce_backend__location_name_distribution_center") }}'
       - name: latitude

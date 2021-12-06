@@ -6,12 +6,17 @@ models:
     columns:
       - name: user_id
         description: '{ doc("ecommerce_backend__user_id") }'
+        tests: 
+          - unique
+          - not_null
       - name: first_name
         description: '{ doc("ecommerce_backend__first_name") }'
       - name: last_name
         description: '{ doc("ecommerce_backend__last_name") }'
       - name: email
         description: '{ doc("ecommerce_backend__email") }'
+        tests: 
+          - not_null
       - name: age
         description: '{ doc("ecommerce_backend__age") }'
       - name: city

@@ -1,4 +1,8 @@
 with events as (
+    select * from {{ source('ecommerce_backend', 'events') }}
+),
+
+final as (
     select
         id as event_id,
         sequence_number,
@@ -17,7 +21,8 @@ with events as (
         user_id,
         uri,
         event_type
-    from {{ source('ecommerce_backend', 'events') }}
+
+    from events
 )
 
-select * from events
+select * from final
