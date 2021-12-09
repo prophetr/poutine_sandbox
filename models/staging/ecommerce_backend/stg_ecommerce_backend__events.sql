@@ -4,10 +4,16 @@ with events as (
 
 final as (
     select
+
+        -- primary key
         id as event_id,
+
+        -- foreign key
+        user_id,
+
+        -- details
         sequence_number,
         session_id,
-        created_at,
         ip_address,
         city,
         state,
@@ -18,9 +24,11 @@ final as (
         os,
         browser,
         traffic_source,
-        user_id,
         uri,
-        event_type
+        event_type,
+
+        -- dates & timestamps
+        created_at
 
     from events
 )

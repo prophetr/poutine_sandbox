@@ -7,3 +7,6 @@ logs/
 venv/
 env/
 dbt-env/
+
+# mac
+.DS_Store

@@ -1,20 +1,20 @@
 version: 2
 
 models:
-  - name: stg_events
+  - name: stg_ecommerce_backend__events
     description: A collection of all events that happened on Poutine Shop
     columns:
       - name: event_id
-        description: '{{ doc("ecommerce_backend__event_id") }}'
+        description: '{{ doc("ecommerce_backend__events__id") }}'
         tests: 
           - unique
           - not_null
       - name: sequence_number
-        description: '{{ doc("ecommerce_backend__sequence_number_events") }}'
+        description: '{{ doc("ecommerce_backend__events__sequence_number") }}'
         tests: 
           - not_null
       - name: session_id
-        description: '{{ doc("ecommerce_backend__session_id_events") }}'
+        description: '{{ doc("ecommerce_backend__events__session_id") }}'
         tests: 
           - not_null
       - name: created_at
@@ -38,10 +38,10 @@ models:
       - name: browser
         description: '{{ doc("ecommerce_backend__browser") }}'
       - name: traffic_source
-        description: '{{ doc("ecommerce_backend__traffic_source_events") }}'
+        description: '{{ doc("ecommerce_backend__events__traffic_source") }}'
       - name: user_id
-        description: '{{ doc("ecommerce_backend__user_id") }}'
+        description: '{{ doc("ecommerce_backend__users__id") }}'
       - name: uri
-        description: '{{ doc("ecommerce_backend__uri") }}'
+        description: '{{ doc("ecommerce_backend__events__uri") }}'
       - name: event_type
-        description: '{{ doc("ecommerce_backend__distribution_center_id") }}'
+        description: '{{ doc("ecommerce_backend__events__event_type") }}'

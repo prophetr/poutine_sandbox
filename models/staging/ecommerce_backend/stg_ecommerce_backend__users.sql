@@ -4,7 +4,10 @@ with users as (
 
 final as (
     select
+        -- primary key
         id as user_id,
+
+        -- details
         first_name,
         last_name,
         email,
@@ -16,8 +19,10 @@ final as (
         latitude,
         longitude,
         gender,
-        created_at,
-        traffic_source
+        traffic_source,
+
+        -- dates & timestamps
+        created_at
         
     from users
 )

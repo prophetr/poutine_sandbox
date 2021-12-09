@@ -4,8 +4,11 @@ with distribution_centers as (
 
 final as (
     select
+        -- primary key
         id as distribution_center_id,
-        name as location_name,
+
+        -- details
+        name,
         latitude,
         longitude
 

@@ -1,16 +1,16 @@
 version: 2
 
 models:
-  - name: stg_distribution_centers
+  - name: stg_ecommerce_backend__distribution_centers
     description: A dimension table that list all Poutine Shop distribution centers
     columns:
       - name: distribution_center_id
-        description: '{{ doc("ecommerce_backend__distribution_center_id") }}'
+        description: '{{ doc("ecommerce_backend__distribution_center__id") }}'
         tests:
           - unique
           - not_null
-      - name: location_name
-        description: '{{ doc("ecommerce_backend__location_name_distribution_center") }}'
+      - name: name
+        description: '{{ doc("ecommerce_backend__distribution_centers__name") }}'
       - name: latitude
         description: '{{ doc("ecommerce_backend__latitude") }}'
       - name: longitude
