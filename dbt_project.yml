@@ -19,7 +19,7 @@ query-comment:
   append: true
 
 # Require dbt 0.19.x
-require-dbt-version: [">=0.20.0", "<0.21.0"]
+require-dbt-version: [">=1.0.0", "<1.1.0"]
 
 # Variables
 vars:

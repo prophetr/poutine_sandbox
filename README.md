@@ -3,132 +3,32 @@
 This repository contains the data transformation logic for the Poutine Shop data warehouse.
 ​
 The project is built on an open source tool: [dbt](https://www.getdbt.com/).
-​
-### Setup and Dependencies
-​
-dbt requires a functional Python environment on your workstation. It's best to avoid Python that comes pre-installed with your OS, and we recommend creating a virtual environment dedicated to the project. This can be done using any of Python's virtual environment tools including `virtualenv` or `conda` for example, although we recommend virtualenv for ease of use.
-​
-NOTE: These instructions are a general guideline only. They may or may not work as-is on your computer, as multiple factors can influence compatibility and steps. These instructions also assumes that you already have Git set up and your SSH keys configured to be able to clone and push changes.
-#### Installing Python, dbt and pre-commit on Mac
-​
-There are many ways to install Python on a Mac. We recommend using [Homebrew](https://brew.sh/):
-​
-1. Install Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-2. Install Python 3.8: `brew install python@3.8` 
-3. Install Virtualenv: `pip3 install virtualenv`
-4. Go to the directory where you store your codebases. If you don't have any, we recommend creating a `~/Code` directory.
-5. Clone the git repository: `git clone git@github.com:Montreal-Analytics/poutineshop.git`
-6. Go to the `data-dbt` directory.
-7. Create a virtual environment: `python3 -m venv venv_dbt`
-8. Activate the virtual environment: `source venv_dbt/bin/activate`
-9. Install dependencies: `pip3 install -r requirements.txt`
-10. Install pre-commit hooks: `pre-commit install`
-​
-#### Installing Python, dbt and pre-commit on Windows
-​
-1. Install Python 3.8: https://www.python.org/downloads/release/python-3810/
-2. Install Virtualenv: `py -m pip install virtualenv`
-3. Go to the directory where you store your codebases. If you don't have any, we recommend creating a `\Code` directory.
-4. Clone the git repository: `git clone git@github.com:Montreal-Analytics/poutineshop.git`
-5. Go to the `data-dbt` directory.
-6. Create a virtual environment: `py -m venv venv_dbt`
-7. Activate the virtual environment: `.\venv_dbt\Scripts\activate`
-8. Install dependencies: `py -m pip install -r requirements.txt`
-9. Install pre-commit hooks: `pre-commit install`
-​
-#### Configure Profile and Connections
-​
-This project expects a `~/.dbt/profiles.yml` file.
-​
-1. You need to have a Redshift user, with the `transformer` and `reporter` groups assigned to it.
-2. Create the `~/.dbt` directory:
-- `mkdir ~/.dbt`
-3. Copy the example profile to the directory:
-- `cp profiles.sample.yml ~/.dbt/profiles.yml`
-4. Add your username, password, and schema to your local file.
-​
-### Code Editor Setup
-​
-You can use any code editor to work with dbt, but VS Code and Atom are the most common ones and have useful extensions to make your life easier. We recommend VS Code if you don't currently have a preference.
-​
-Useful VS Code extensions:
-​
-- vscode-dbt by bastienboutonnet
-- dbt Power User by innoverio
-- Better Jinja by Samuel Colvin
-- Find Related Files by Eric Amodio
-- Rainbow CSV by mechatroner
-- Todo Tree by Gruntfuggly
-- YAML by Red Hat
-- GitLens by Eric Amodio
-- GitHub Pull Requests and Issues by GitHub
-- dbt Power User by innoverio
-​
-#### Specific configurations (to be added in the settings.json of VS Code):
-​
-The following will remap Markdown, Yaml and SQL files to use the Jinja-flavoured interpreter:
-​
+
+# Install dbt
+Install dbt by running `pip3 install -r requirements.txt`
+
+# Profile
+
+In order to use Poutine Shop, add the following to your ~/.dbt/profiles.yml file, taking care to replace the value of the `user` and `schema` parameter.
+If you don't already have a profiles file, create a new one.
+
 ```
-    "files.associations":{
-        "*.md": "jinja-md",
-        "*.yml": "jinja-yaml",
-        "*.sql": "jinja-sql",
-    },
-```
-​
-The following will configure Related Files rules for raw / compiled models:
-​
-```
-"findrelated.rulesets": [
-        {
-            "name": "sql",
-            "rules": [
-                {
-                    "pattern": "^(.*/)?models/(.*/)?(.+\\.sql)$",
-                    "locators": [
-                        "**/compiled/**/$3"
-                    ]
-                },
-                {
-                    "pattern": "^(.*/)?compiled/(.*/)?(.+\\.sql)$",
-                    "locators": [
-                        "**/run/**/$3"
-                    ]
-                },
-                {
-                    "pattern": "^(.*/)?run/(.*/)?(.+\\.sql)$",
-                    "locators": [
-                        "**/models/**/$3"
-                    ]
-                }
-            ]
-        }
-    ],
-```
-​
-The following will configure spacing/indentation rules to follow the style guide:
-​
-```
-    "[yaml]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2
-    },
-    "[sql]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 4
-    },
-    "[jinja-yaml]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2
-    },
-    "[jinja-sql]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 4
-    },
-    "editor.detectIndentation": false,
-    "editor.rulers": [
-        { "column": 80, "color": "#403558" }
-    ],
+poutine_shop:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: lo43931.us-central1.gcp
+      user: martin.guindon
+
+      # SSO config
+      authenticator: externalbrowser
+
+      database: dbt_poutineshop_dev
+      warehouse: elt_xs_wh
+      schema: dbt_mguindon
+      threads: 8
+
 ```
 ​
 ### Using the project:
