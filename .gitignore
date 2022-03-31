@@ -2,6 +2,7 @@
 target/
 dbt_modules/
 logs/
+dbt_packages/
 
 # virtual env
 venv/
