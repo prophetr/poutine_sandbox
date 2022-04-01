@@ -24,7 +24,7 @@ poutine_shop:
       # SSO config
       authenticator: externalbrowser
 
-      database: dbt_poutineshop_dev
+      database: poutineshop_dev_db
       warehouse: elt_xs_wh
       schema: dbt_mguindon
       threads: 8
