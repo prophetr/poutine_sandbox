@@ -4,10 +4,10 @@ name: 'poutine_shop'
 version: '1.0.0'
 config-version: 2
 profile: 'poutine_shop'
-source-paths: ["models"]
+model-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
-data-paths: ["data"]
+seed-paths: ["data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 target-path: "target"
@@ -25,6 +25,14 @@ require-dbt-version: [">=1.0.0", "<1.1.0"]
 vars:
   util_days_start_date: "1970-01-01"
 
+  dbt_artifacts:
+    dbt_artifacts_database: poutineshop_dbt_artifacts_db
+    dbt_artifacts_schema: dbt_artifacts
+    dbt_artifacts_table: artifacts
+    dbt_artifacts_results_table: dbt_run_results
+    dbt_artifacts_result_nodes_table: dbt_run_result_nodes
+    dbt_artifacts_manifest_nodes_table: dbt_manifest_nodes
+
 # Models
 models:
   poutine_shop:
@@ -39,3 +47,8 @@ models:
     utils:
       # Default materialization of utils should be tables
       +materialized: table
+
+  dbt_artifacts:
+    +schema: dbt_artifacts
+    staging:
+      +schema: dbt_artifacts

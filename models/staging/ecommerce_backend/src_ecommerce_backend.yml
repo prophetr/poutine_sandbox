@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: ecommerce_backend
     description: Data from Poutine Shop ecommerce backend
-    database: dbt_poutineshop_raw
+    database: poutineshop_raw_db
     schema: raw_data
     tables:
       - name: distribution_centers
