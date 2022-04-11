@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_production__customers
+    description: stage table for customers
+    columns:
+      - name: customer_id
+        description :  customer unique identifier
+        tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Customer Name
+      - name: customer_birth_date
+        description: Customer birthdate
+      - name: customer_city
+        description: Customer city
+      - name: customer_state
+        description: Customer state
+      - name: customer_zip_code
+        description: Customer zipcode
+      - name: customer_phone_number
+        description: Customer phone number
+      - name: customer_email
+        description: Customer email 
+      - name: gender
+        description: Customer gender
+        

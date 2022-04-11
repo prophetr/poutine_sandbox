@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_transactions__order_items
+    description: stage table for order_items
+    columns:
+      - name: order_item_unique_sk
+        description :   unique identifier for each ordered item
+        tests:
+          - not_null  
+          - unique
+      - name: order_id
+        description: Unique order id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_transactions__orders')
+              field: order_id
+      - name: product_id
+        description: product id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_transactions__products')
+              field: product_id
+      - name: customer_id
+        description: customer id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_production__customers')
+              field: customer_id
+      - name: quantity
+        description: Number of products
+        tests:
+          - dbt_utils.expression_is_true:
+             expression: ">0"
+      - name: product_name
+        description: Name of order item
+      - name: product_cost
+        description: Cost of product
+      - name: subtotal
+        description: Subtotal without tax
+      - name: order_created_at
+        description:  Created at date

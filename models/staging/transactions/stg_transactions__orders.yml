@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_transactions__orders
+    description: stage table for orders
+    columns:
+      - name: order_id
+        description :   unique identifier for orders
+        tests:
+          - not_null  
+          - unique
+      - name: customer_id
+        description: unique identifier for customers
+        tests: 
+          - not_null
+          - relationships:
+              to: ref('stg_production__customers')
+              field: customer_id
+      - name: order_quantity
+        description: Number of goods
+        tests:
+          - dbt_utils.expression_is_true:
+             expression: ">0"
+      - name: order_subtotal
+        description: Subtotal of goods without tax
+      - name: order_tax
+        description: Tax amount
+      - name: order_total
+        description:  Total amount (Subtotal + Tax)
+        tests: 
+          - dbt_utils.expression_is_true:
+             expression: "= order_subtotal + order_tax"
+      - name: order_created_at
+        description: Created at date
