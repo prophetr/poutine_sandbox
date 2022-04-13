@@ -18,12 +18,18 @@ query-comment:
   comment: "{{ query_comment(node) }}"
   append: true
 
-# Require dbt 0.19.x
+# Require dbt 1.0.0+
 require-dbt-version: [">=1.0.0", "<1.1.0"]
 
 # Variables
 vars:
   util_days_start_date: "1970-01-01"
+
+# Hooks
+on-run-end:
+  # Grant usage to both our Looker and Sigma instances
+  - "{{ grant_usage_on_schemas(schemas, 'LOOKER_ROLE') }}"
+  - "{{ grant_usage_on_schemas(schemas, 'SIGMA_ROLE') }}"
 
 # Models
 models:
@@ -31,6 +37,14 @@ models:
     marts:
       # Default materialization of marts should be tables
       +materialized: table
+
+      # Grant select to both our Looker and Sigma instances
+      +post-hook:
+        - 'grant select on {{ this }} to role SIGMA_ROLE'
+        - 'grant select on {{ this }} to role LOOKER_ROLE'
+
+      core:
+        +schema: core
 
     staging:
       # Default materialization of staging should be views

@@ -9,9 +9,15 @@
 
         {{ custom_schema_name | trim }}
 
+    {%- elif target.name == 'prod' %}
+
+        {# in prod, don't prepend the default_schema #}
+        {{ custom_schema_name | trim }}
+
     {%- else -%}
 
-        {{ default_schema }}_{{ custom_schema_name | trim }}
+        {# in dev/ci, build all tables in the default_schema, ignoring custom schemas #}
+        {{ default_schema }}
 
     {%- endif -%}
 
