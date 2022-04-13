@@ -25,14 +25,6 @@ require-dbt-version: [">=1.0.0", "<1.1.0"]
 vars:
   util_days_start_date: "1970-01-01"
 
-  dbt_artifacts:
-    dbt_artifacts_database: poutineshop_dbt_artifacts_db
-    dbt_artifacts_schema: dbt_artifacts
-    dbt_artifacts_table: artifacts
-    dbt_artifacts_results_table: dbt_run_results
-    dbt_artifacts_result_nodes_table: dbt_run_result_nodes
-    dbt_artifacts_manifest_nodes_table: dbt_manifest_nodes
-
 # Models
 models:
   poutine_shop:
@@ -48,7 +40,3 @@ models:
       # Default materialization of utils should be tables
       +materialized: table
 
-  dbt_artifacts:
-    +schema: dbt_artifacts
-    staging:
-      +schema: dbt_artifacts
