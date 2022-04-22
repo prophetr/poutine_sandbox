@@ -10,7 +10,8 @@ final as (
         city as customer_city,
         state as customer_state,
         zipcode as customer_zip_code,
-        "phone-number" as customer_phone_number,
+        -- L057 fails for this line because it includes the special char "-"
+        "phone-number" as customer_phone_number, --noqa
         email as customer_email,
         gender
     from src_customers

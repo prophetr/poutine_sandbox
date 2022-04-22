@@ -23,15 +23,15 @@ final as (
         -- dates & timestamps
         created_at,
         sold_at
-        
+
 
     from inventory_items
     where inventory_item_id not in (
         -- records with null product_id
-        288038, 
-        218960, 
-        325238, 
-        45766, 
+        288038,
+        218960,
+        325238,
+        45766,
         99912
     )
 )

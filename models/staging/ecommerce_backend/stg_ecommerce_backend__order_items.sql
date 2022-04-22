@@ -21,13 +21,13 @@ final as (
         returned_at,
         shipped_at,
         delivered_at
-        
+
     from order_items
     where order_item_id not in (
         -- records with 'Test' value as status
-        298433, 
-        56567, 
-        68410, 
+        298433,
+        56567,
+        68410,
         84202,
         -- record with null order_id
         289395

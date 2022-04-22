@@ -23,7 +23,7 @@ final as (
 
         -- dates & timestamps
         created_at
-        
+
     from users
 )
 

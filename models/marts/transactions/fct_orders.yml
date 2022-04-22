@@ -3,7 +3,9 @@ version: 2
 models:
 
   - name: fct_orders
-    description: This table brings data from 3 dataset. Each row represents an order items with information on that item/order.
+    description: >
+      This table brings data from 3 dataset. Each row represents an order items
+      with information on that item/order.
     columns:
       - name: orders_sk
         description: "{{doc('fct_orders__orders_sk' ) }}"
@@ -30,4 +32,3 @@ models:
         description: "{{doc('fct_orders__order_tax' ) }}"
       - name: order_total
         description: "{{doc('fct_orders__order_total' ) }}"
-        

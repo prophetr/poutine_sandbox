@@ -22,14 +22,14 @@ final as (
     from products
     where product_id not in (
         -- records with null sku
-        425, 
-        1009, 
-        8903, 
-        29000, 
+        425,
+        1009,
+        8903,
+        29000,
         100,
         -- records with non-unique sku code
-        18166, 
-        683, 
+        18166,
+        683,
         14717,
         27398,
         -- record with no matching distribution centers relationship

@@ -1,22 +1,22 @@
 with order_items as (
 
-  select * from {{ ref('stg_transactions__order_items') }}
+    select * from {{ ref('stg_transactions__order_items') }}
 
-), 
+),
 
 customers as (
 
-  select * from {{ ref('stg_production__customers') }}
+    select * from {{ ref('stg_production__customers') }}
 
-), 
+),
 
 orders as (
 
-  select * from {{ ref('stg_transactions__orders') }} 
+    select * from {{ ref('stg_transactions__orders') }}
 
-), 
+),
 
-final as  (
+final as (
 
     select
         -- surrogate key
@@ -41,10 +41,10 @@ final as  (
         order_items.order_created_at
 
     from order_items
-        left join customers 
-            on order_items.customer_id = customers.customer_id
-        left join orders
-            on order_items.order_id = orders.order_id
+    left join customers
+        on order_items.customer_id = customers.customer_id
+    left join orders
+        on order_items.order_id = orders.order_id
 
 )
 
