@@ -11,7 +11,7 @@
 
     {%- elif target.name == 'prod' %}
 
-        {# in prod, don't prepend the default_schema #}
+        {# in prod, do not prepend the default_schema #}
         {{ custom_schema_name | trim }}
 
     {%- else -%}

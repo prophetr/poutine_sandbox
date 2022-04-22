@@ -1,4 +1,11 @@
+# dbt output files
 target/
-dbt_modules/
 logs/
+
+# dependencies and virtualenvs
+dbt_packages/
 venv/
+
+# other
+etc/
+macros/

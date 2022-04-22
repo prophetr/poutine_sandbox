@@ -11,7 +11,8 @@ seed-paths: ["data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 target-path: "target"
-clean-targets: ["target", "dbt_modules"]
+packages-install-path: "dbt_packages"
+clean-targets: ["target", "dbt_packages"]
 
 # Add a dynamic query comment providing context of execution
 query-comment:
@@ -53,4 +54,3 @@ models:
     utils:
       # Default materialization of utils should be tables
       +materialized: table
-
