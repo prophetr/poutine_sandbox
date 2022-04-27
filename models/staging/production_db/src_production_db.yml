@@ -4,7 +4,7 @@ sources:
   - name: production_db
     database: poutineshop_raw_db
     description: |
-      Data from production including customers, fulfillment, and products.
+      Data from production including customers, fulfillment, shops and products.
     freshness:
       warn_after: {count: 48, period: hour}
     tables:
@@ -67,3 +67,30 @@ sources:
             description: Size of product
           - name: type
             description: Type of product
+
+      - name: shops
+        description: A table of poutine shops with location data.
+        columns:
+          - name: id
+            description: Unique shop id
+            tests:
+              - unique
+              - not_null
+          - name: address
+            description: Street address of the poutine shop
+          - name: city
+            description: City name of the poutine shop location
+          - name: province
+            description: |
+              Two character province code for the poutine shop location
+          - name: country
+            description: |
+              Two character country code for the poutine shop location
+          - name: postal_code
+            description: Postal code of the poutine shop location
+          - name: latitude
+            description: |
+              Latitude coordinates for the location of the poutine shop
+          - name: longitude
+            description: |
+              Longitude coordinates for the location of the poutine shop
