@@ -5,13 +5,13 @@ models:
     description: stage table for orders
     columns:
       - name: order_id
-        description :   unique identifier for orders
+        description: Unique identifier for orders.
         tests:
-          - not_null  
+          - not_null
           - unique
       - name: customer_id
         description: unique identifier for customers
-        tests: 
+        tests:
           - not_null
           - relationships:
               to: ref('stg_production__customers')
@@ -20,15 +20,19 @@ models:
         description: Number of goods
         tests:
           - dbt_utils.expression_is_true:
-             expression: ">0"
+              expression: ">0"
       - name: order_subtotal
         description: Subtotal of goods without tax
       - name: order_tax
         description: Tax amount
       - name: order_total
-        description:  Total amount (Subtotal + Tax)
-        tests: 
+        description: Total amount (Subtotal + Tax)
+        tests:
           - dbt_utils.expression_is_true:
-             expression: "= order_subtotal + order_tax"
+              expression: "= order_subtotal + order_tax"
       - name: order_created_at
         description: Created at date
+      - name: shop_id
+        description: Unique identifier for the shop that the order was placed.
+        tests:
+          - not_null

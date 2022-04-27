@@ -22,18 +22,20 @@ sources:
             description: Tax amount
           - name: total
             tests:
-             - dbt_utils.expression_is_true:
-                expression: "= subtotal + tax"
+              - dbt_utils.expression_is_true:
+                  expression: "= subtotal + tax"
             description: Total amount (Subtotal + Tax)
           - name: order_id
             description: Unique order id
             tests:
-              - unique:
-                  config:
-                    severity: warn
               - not_null
           - name: created_at
             description: Created at date
+          - name: shop_id
+            description: |
+              Unique identifier for the shop that the order was placed.
+            tests:
+              - not_null
 
       - name: order_items
         description: A table of products and their cost

@@ -29,6 +29,7 @@ final as (
         order_items.order_id,
         order_items.product_id,
         order_items.customer_id,
+        orders.shop_id,
 
         --facts
         order_items.quantity as order_quantity,

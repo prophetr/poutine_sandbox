@@ -6,6 +6,7 @@ final as (
     select
         order_id,
         customer_id,
+        shop_id,
         quantity as order_quantity,
         subtotal as order_subtotal,
         tax as order_tax,

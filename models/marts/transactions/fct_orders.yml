@@ -8,27 +8,29 @@ models:
       with information on that item/order.
     columns:
       - name: orders_sk
-        description: "{{doc('fct_orders__orders_sk' ) }}"
+        description: "{{ doc('fct_orders__orders_sk') }}"
         tests:
           - not_null
           - unique
       - name: order_item_unique_sk
-        description: "{{doc('fct_orders__order_item_unique_sk' ) }}"
+        description: "{{ doc('fct_orders__order_item_unique_sk') }}"
       - name: order_id
-        description: "{{doc('fct_orders__order_id' ) }}"
+        description: "{{ doc('fct_orders__order_id') }}"
       - name: product_id
-        description: "{{doc('fct_orders__product_id' ) }}"
+        description: "{{ doc('fct_orders__product_id') }}"
       - name: customer_id
-        description: "{{doc('fct_orders__customer_id' ) }}"
+        description: "{{ doc('fct_orders__customer_id') }}"
+      - name: shop_id
+        description: "{{ doc('fct_orders__shop_id') }}"
       - name: order_quantity
-        description: "{{doc('fct_orders__order_quantity' ) }}"
+        description: "{{ doc('fct_orders__order_quantity') }}"
       - name: product_cost
-        description: "{{doc('fct_orders__product_cost' ) }}"
+        description: "{{ doc('fct_orders__product_cost') }}"
       - name: subtotal
-        description: "{{doc('fct_orders__subtotal' ) }}"
+        description: "{{ doc('fct_orders__subtotal') }}"
       - name: order_created_at
-        description: "{{doc('fct_orders__order_created_at' ) }}"
+        description: "{{ doc('fct_orders__order_created_at') }}"
       - name: order_tax
-        description: "{{doc('fct_orders__order_tax' ) }}"
+        description: "{{ doc('fct_orders__order_tax') }}"
       - name: order_total
-        description: "{{doc('fct_orders__order_total' ) }}"
+        description: "{{ doc('fct_orders__order_total') }}"

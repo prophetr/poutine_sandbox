@@ -3,7 +3,8 @@ version: 2
 sources:
   - name: production_db
     database: poutineshop_raw_db
-    description: Data from production including customers, fulfillment, and products
+    description: |
+      Data from production including customers, fulfillment, and products.
     freshness:
       warn_after: {count: 48, period: hour}
     tables:
@@ -66,4 +67,3 @@ sources:
             description: Size of product
           - name: type
             description: Type of product
-            

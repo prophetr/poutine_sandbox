@@ -3,7 +3,11 @@ version: 2
 models:
 
   - name: dim_customers
-    description: One record per customer with details about customer's first and latest order dates, count of orders, number of events and total revenue contributed by the customer. This table is designed to join any fact table which contains customer_id as the foreign key.
+    description: |
+      One record per customer with details about customer's first and latest
+      order dates, count of orders, number of events and total revenue
+      contributed by the customer. This table is designed to join any fact table
+      which contains customer_id as the foreign key.
     columns:
       - name: customer_id
         description: Primary key of the dim_customers table.
@@ -24,4 +28,3 @@ models:
         description: Total number of events initiated by the customer.
       - name: sum_order_revenue
         description: Total amount spent by the customer.
-      

@@ -18,6 +18,10 @@ Unique product identifier.
 Unique customer identifier.
 {% enddocs %}
 
+{% docs fct_orders__shop_id %}
+Unique identifier for the shop that the order was placed.
+{% enddocs %}
+
 {% docs fct_orders__order_quantity %}
 The number of items ordered by the customer.
 {% enddocs %}
