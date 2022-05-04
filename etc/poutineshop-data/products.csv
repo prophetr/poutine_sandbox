@@ -1,0 +1,16 @@
+product_id,name,cost,description,size,type
+1,sm_ptn,3.99,small poutine,small,food
+2,m_ptn,5.99,medium poutine,medium,food
+3,l_ptn,6.99,large poutine,large,food
+4,sm_fr,2.99,small fries,small,food
+5,m_fr,3.99,medium fries,medium,food
+6,l_fr,4.99,large fries,large,food
+7,s_ftn,0.99,small fountain drink,small,beverage
+8,m_ftn,1.49,medium fountain drink,medium,beverage
+9,l_ftn,2.29,large fountain drink,large,beverage
+10,s_ext_grv,0.3,add gravy small,small,extra
+11,m_ext_grv,0.6,add gravy medium,medium,extra
+12,l_ext_grv,0.99,add gravy large,large,extra
+13,s_ext_smk,1.99,add smoked meat small,small,extra
+14,m_ext_smk,2.99,add smoked meat medium,medium,extra
+15,l_ext_smk,3.99,add smoked meat large,large,extra
