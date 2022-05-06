@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_production__fulfillments
+    description:
+      One row per fulfillment event (e.g. order_packaged, order_shipped) with
+      keys for both the relevant order and customer
+    columns:
+      - name: order_id
+        description: unique identifier for orders
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_transactions__orders')
+              field: order_id
+      - name: customer_id
+        description: unique identifier for customers
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_production__customers')
+              field: customer_id
+      - name: created_at
+        description: Created at date
+      - name: event_id
+        description: Event unique id
+      - name: event_name
+        description: Fulfillment event name
+        tests:
+          - accepted_values:
+              values:
+                - order_packaged
+                - order_shipped
+                - order_delivered
