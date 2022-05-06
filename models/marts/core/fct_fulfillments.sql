@@ -25,11 +25,7 @@ final as (
         -- details
         event_name
 
-        -- metrics: TODO would be intereting to have a most_recent_order snapshot
-
     from fulfillments
-    left join customers
-        on fulfillments.customer_id = customers.customer_id
     left join orders
         on fulfillments.order_id = orders.order_id
 )

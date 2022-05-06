@@ -8,18 +8,8 @@ models:
     columns:
       - name: order_id
         description: unique identifier for orders
-        tests:
-          - not_null
-          - relationships:
-              to: ref('stg_transactions__orders')
-              field: order_id
       - name: customer_id
         description: unique identifier for customers
-        tests:
-          - not_null
-          - relationships:
-              to: ref('stg_production__customers')
-              field: customer_id
       - name: created_at
         description: Created at date
       - name: fulfillment_event_id
