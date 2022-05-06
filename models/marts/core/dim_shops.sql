@@ -4,17 +4,17 @@ with shops as (
 
 final as (
     select
-        --primary key
-        shops.id as shop_id,
+        -- primary key
+        shop_id,
 
-        --dimensions
-        shops.address,
-        shops.city,
-        shops.province,
-        shops.country,
-        shops.postal_code,
-        shops.latitude,
-        shops.longitude
+        -- details
+        shop_address,
+        shop_city,
+        shop_province,
+        shop_country,
+        shop_postal_code,
+        shop_latitude,
+        shop_longitude
 
     from shops
 )

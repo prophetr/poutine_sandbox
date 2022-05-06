@@ -2,11 +2,13 @@ version: 2
 
 models:
   - name: stg_ecommerce_backend__users
-    description: Dimensional table containing all users that shopped at Poutine Shop
+    description: >
+      One row per user that shopped at Poutine Shop with details like their
+      name and non-specific address
     columns:
       - name: user_id
         description: '{{ doc("ecommerce_backend__users__id") }}'
-        tests: 
+        tests:
           - unique
           - not_null
       - name: first_name
@@ -15,7 +17,7 @@ models:
         description: '{{ doc("ecommerce_backend__users__last_name") }}'
       - name: email
         description: '{{ doc("ecommerce_backend__users__email") }}'
-        tests: 
+        tests:
           - not_null
       - name: age
         description: '{{ doc("ecommerce_backend__users__age") }}'

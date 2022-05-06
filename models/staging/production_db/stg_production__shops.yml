@@ -4,7 +4,7 @@ models:
   - name: stg_production__shops
     description: Table from production database describing shop location.
     columns:
-      - name: id
+      - name: shop_id
         description: Unique shop id
         tests:
           - unique

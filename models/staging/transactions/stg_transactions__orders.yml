@@ -2,7 +2,9 @@ version: 2
 
 models:
   - name: stg_transactions__orders
-    description: stage table for orders
+    description: >
+      One row per order with a key to link it to its customer and details like
+      quantity and total price
     columns:
       - name: order_id
         description: Unique identifier for orders.
@@ -16,6 +18,13 @@ models:
           - relationships:
               to: ref('stg_production__customers')
               field: customer_id
+      - name: shop_id
+        description: Unique identifier for the shop that the order was placed.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_production__shops')
+              field: shop_id
       - name: order_quantity
         description: Number of goods
         tests:
@@ -32,7 +41,3 @@ models:
               expression: "= order_subtotal + order_tax"
       - name: order_created_at
         description: Created at date
-      - name: shop_id
-        description: Unique identifier for the shop that the order was placed.
-        tests:
-          - not_null

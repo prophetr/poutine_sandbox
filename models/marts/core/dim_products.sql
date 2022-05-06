@@ -10,7 +10,7 @@ agg_order_items as (
     select
         product_id,
         sum(quantity) as total_units_sold,
-        sum(subtotal) as total_product_revenue,
+        sum(price) as total_product_revenue,
         min(order_created_at) as product_first_order_at,
         max(order_created_at) as product_recent_order_at,
         count(distinct customer_id) as total_unique_buyers
@@ -24,16 +24,16 @@ final as (
         -- primary key
         stg_products.product_id,
 
-        --direct fields
+        -- details
         stg_products.product_name,
         stg_products.product_cost,
         stg_products.product_description,
         stg_products.product_size,
         stg_products.product_type,
-
-        --derived fields
         agg_order_items.product_first_order_at,
         agg_order_items.product_recent_order_at,
+
+        -- metrics
         coalesce(agg_order_items.total_unique_buyers, 0) as total_unique_buyers,
         coalesce(agg_order_items.total_units_sold, 0) as total_units_sold,
         coalesce(
@@ -53,7 +53,6 @@ final as (
     from stg_products
     left join agg_order_items
         on stg_products.product_id = agg_order_items.product_id
-
 )
 
 select * from final

@@ -6,7 +6,7 @@ orders as (
     select * from {{ ref('stg_transactions__orders') }}
 ),
 
-events as (
+fill_events as (
     select * from {{ ref('stg_production__fulfillments') }}
 ),
 
@@ -17,7 +17,6 @@ customers_orders as (
         max(order_created_at) as latest_order_created_at,
         sum(order_total) as sum_order_revenue,
         count(order_id) as count_orders
-
     from orders
     group by 1
 ),
@@ -25,25 +24,25 @@ customers_orders as (
 customers_fulfillments as (
     select
         customer_id,
-        count(distinct event_id) as count_unique_events
-    from events
+        count(distinct fulfillment_event_id) as count_unique_events
+    from fill_events
     group by 1
 ),
 
 final as (
     select
-        --primary key
+        -- primary key
         customers.customer_id,
 
-        --date & timestamp
+        -- dates & timestamps
         customers_orders.first_order_created_at,
         customers_orders.latest_order_created_at,
 
-        --dimensions
+        -- details
         customers.customer_name,
-        customers.gender,
+        customers.customer_gender,
 
-        --metrics
+        -- metrics
         coalesce(customers_orders.count_orders, 0) as count_orders,
         coalesce(
             customers_fulfillments.count_unique_events, 0

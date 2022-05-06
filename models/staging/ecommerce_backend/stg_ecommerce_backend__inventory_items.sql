@@ -7,9 +7,13 @@ final as (
         -- primary key
         id as inventory_item_id,
 
-        -- foreign key
+        -- foreign keys
         product_id,
         product_distribution_center_id,
+
+        -- dates & timestamps
+        created_at,
+        sold_at,
 
         -- details
         cost,
@@ -18,12 +22,7 @@ final as (
         product_brand,
         product_retail_price,
         product_department,
-        product_sku,
-
-        -- dates & timestamps
-        created_at,
-        sold_at
-
+        product_sku
 
     from inventory_items
     where inventory_item_id not in (

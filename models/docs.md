@@ -22,16 +22,16 @@ Unique customer identifier.
 Unique identifier for the shop that the order was placed.
 {% enddocs %}
 
-{% docs fct_orders__order_quantity %}
+{% docs fct_orders__quantity %}
 The number of items ordered by the customer.
 {% enddocs %}
 
-{% docs fct_orders__product_cost %}
-The cost of the product
+{% docs fct_orders__unit_price %}
+Price of 1 unit of the product
 {% enddocs %}
 
-{% docs fct_orders__subtotal %}
-The order's subtotal
+{% docs fct_orders__price %}
+Combined price for all units in order item (i.e. unit_price multiplied by quantity)
 {% enddocs %}
 
 {% docs fct_orders__order_created_at %}

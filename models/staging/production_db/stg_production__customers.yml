@@ -2,10 +2,11 @@ version: 2
 
 models:
   - name: stg_production__customers
-    description: stage table for customers
+    description: >
+      One row per customer with details like address and birth date
     columns:
       - name: customer_id
-        description :  customer unique identifier
+        description: customer unique identifier
         tests:
           - not_null
           - unique
@@ -22,7 +23,6 @@ models:
       - name: customer_phone_number
         description: Customer phone number
       - name: customer_email
-        description: Customer email 
-      - name: gender
+        description: Customer email
+      - name: customer_gender
         description: Customer gender
-        

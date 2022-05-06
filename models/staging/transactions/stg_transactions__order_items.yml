@@ -2,12 +2,14 @@ version: 2
 
 models:
   - name: stg_transactions__order_items
-    description: stage table for order_items
+    description: >
+      One table per order item with keys for the relevant product and order;
+      the order is linked to 1+ order items
     columns:
       - name: order_item_unique_sk
-        description :   unique identifier for each ordered item
+        description: unique identifier for each ordered item
         tests:
-          - not_null  
+          - not_null
           - unique
       - name: order_id
         description: Unique order id
@@ -21,7 +23,7 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('stg_transactions__products')
+              to: ref('stg_production__products')
               field: product_id
       - name: customer_id
         description: customer id
@@ -34,12 +36,14 @@ models:
         description: Number of products
         tests:
           - dbt_utils.expression_is_true:
-             expression: ">0"
+              expression: ">0"
       - name: product_name
         description: Name of order item
-      - name: product_cost
-        description: Cost of product
-      - name: subtotal
-        description: Subtotal without tax
+      - name: unit_price
+        description: Price of 1 unit of the product
+      - name: price
+        description: >
+          Combined price for all units in order item (i.e. unit_price
+          multiplied by quantity)
       - name: order_created_at
-        description:  Created at date
+        description: Created at date

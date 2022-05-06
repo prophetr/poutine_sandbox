@@ -2,20 +2,22 @@ version: 2
 
 models:
   - name: stg_ecommerce_backend__events
-    description: A collection of all events that happened on Poutine Shop
+    description: >
+      One row per page visit event on the Poutine Shop website with details
+      about the session context
     columns:
       - name: event_id
         description: '{{ doc("ecommerce_backend__events__id") }}'
-        tests: 
+        tests:
           - unique
           - not_null
       - name: sequence_number
         description: '{{ doc("ecommerce_backend__events__sequence_number") }}'
-        tests: 
+        tests:
           - not_null
       - name: session_id
         description: '{{ doc("ecommerce_backend__events__session_id") }}'
-        tests: 
+        tests:
           - not_null
       - name: created_at
         description: '{{ doc("ecommerce_backend__created_at") }}'

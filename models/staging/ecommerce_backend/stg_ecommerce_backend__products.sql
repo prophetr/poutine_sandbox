@@ -7,7 +7,7 @@ final as (
         -- primary key
         id as product_id,
 
-        -- foreign key
+        -- foreign keys
         distribution_center_id,
 
         -- details

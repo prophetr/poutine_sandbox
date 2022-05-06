@@ -2,24 +2,26 @@ version: 2
 
 models:
   - name: stg_ecommerce_backend__order_items
-    description: Table containing order item information
+    description: >
+      One row per order item that was purchsed from the Poutine Shop; every
+      order has 1+ order items
     columns:
       - name: order_item_id
         description: '{{ doc("ecommerce_backend__order_items__id") }}'
-        tests: 
+        tests:
           - unique
           - not_null
       - name: order_id
         description: '{{ doc("ecommerce_backend__orders__id") }}'
-        tests: 
+        tests:
           - not_null
       - name: user_id
         description: '{{ doc("ecommerce_backend__users__id") }}'
-        tests: 
+        tests:
           - not_null
       - name: inventory_item_id
         description: '{{ doc("ecommerce_backend__inventory_items__id") }}'
-        tests: 
+        tests:
           - not_null
       - name: sale_price
         description: '{{ doc("ecommerce_backend__order_items__sale_price") }}'
@@ -28,7 +30,7 @@ models:
         tests:
           - not_null
           - accepted_values:
-              values: 
+              values:
                 - Complete
                 - Cancelled
                 - Shipped

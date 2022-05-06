@@ -7,6 +7,9 @@ final as (
         -- primary key
         id as user_id,
 
+        -- dates & timestamps
+        created_at,
+
         -- details
         first_name,
         last_name,
@@ -19,10 +22,7 @@ final as (
         latitude,
         longitude,
         gender,
-        traffic_source,
-
-        -- dates & timestamps
-        created_at
+        traffic_source
 
     from users
 )

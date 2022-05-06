@@ -14,7 +14,7 @@ sources:
           - name: name
             description: Customer Name
           - name: birthdate
-            description: Customer birthdate
+            description: Customer birth date
           - name: city
             description: Customer city
           - name: state

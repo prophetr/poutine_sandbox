@@ -2,16 +2,18 @@ version: 2
 
 models:
   - name: stg_ecommerce_backend__inventory_items
-    description: A table that joins inventory stock with product sold at Poutine Shop
+    description: >
+      One row per item in the Poutine Shop inventory with a key for its product
+      and details about when it was created and when it was sold
     columns:
       - name: inventory_item_id
         description: '{{ doc("ecommerce_backend__inventory_items__id") }}'
-        tests: 
+        tests:
           - unique
           - not_null
       - name: product_id
         description: '{{ doc("ecommerce_backend__products__id") }}'
-        tests: 
+        tests:
           - not_null
       - name: created_at
         description: '{{ doc("ecommerce_backend__created_at") }}'
@@ -31,7 +33,7 @@ models:
         description: '{{ doc("ecommerce_backend__products__department") }}'
       - name: product_sku
         description: '{{ doc("ecommerce_backend__products__sku") }}'
-        tests: 
+        tests:
           - not_null
       - name: product_distribution_center_id
         description: '{{ doc("ecommerce_backend__distribution_center__id") }}'

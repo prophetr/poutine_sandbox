@@ -5,22 +5,30 @@ with src_order_items as (
 final as (
     select
         -- primary key
-        {{ dbt_utils.surrogate_key(['order_id', 'product_id']) }}
-        as order_item_unique_sk,
+        {{ dbt_utils.surrogate_key(
+            ['order_id', 'product_id']
+        ) }} as order_item_unique_sk,
 
         -- foreign keys
         order_id,
         product_id,
         customer_id,
 
-        -- dimensions
-        quantity,
-        name as product_name,
-        cost as product_cost,
-        subtotal,
+        -- dates & timestamps
+        created_at as order_created_at,
 
-        -- timestamps
-        created_at as order_created_at
+        -- details
+        name as product_name,
+
+        -- metrics
+        quantity,
+        cost as unit_price,
+        quantity * cost as price
+
+        -- TODO: update raw data structure and column naming; currently this is
+        -- the integer equivalent of cost
+        -- subtotal
+
     from src_order_items
 )
 

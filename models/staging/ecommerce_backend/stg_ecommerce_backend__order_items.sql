@@ -7,20 +7,20 @@ final as (
         -- primary key
         id as order_item_id,
 
-        -- foreign key
+        -- foreign keys
         order_id,
         user_id,
         inventory_item_id,
-
-        -- details
-        sale_price,
-        status,
 
         -- dates & timestamps
         created_at,
         returned_at,
         shipped_at,
-        delivered_at
+        delivered_at,
+
+        -- details
+        sale_price,
+        status
 
     from order_items
     where order_item_id not in (

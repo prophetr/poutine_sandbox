@@ -2,11 +2,12 @@ version: 2
 
 models:
   - name: stg_ecommerce_backend__products
-    description: Dimensional table containing all Poutine Shop products
+    description: >
+      One row per product available in the Poutine Shop
     columns:
       - name: product_id
         description: '{{ doc("ecommerce_backend__products__id") }}'
-        tests: 
+        tests:
           - unique
           - not_null
       - name: cost
@@ -22,13 +23,13 @@ models:
       - name: department
         description: '{{ doc("ecommerce_backend__products__department") }}'
       - name: sku
-        tests: 
+        tests:
           - unique
           - not_null
         description: '{{ doc("ecommerce_backend__products__sku") }}'
       - name: distribution_center_id
         description: '{{ doc("ecommerce_backend__distribution_center__id") }}'
-        tests: 
+        tests:
           - not_null
           - relationships:
               to: ref('stg_ecommerce_backend__distribution_centers')

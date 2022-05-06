@@ -4,11 +4,19 @@ with src_fulfillments as (
 
 final as (
     select
+        -- primary key
+        event_id as fulfillment_event_id,
+
+        -- foreign keys
         order_id,
         customer_id,
+
+        -- dates & timestamps
         created_at,
-        event_id,
+
+        -- details
         event_name
+
     from src_fulfillments
 )
 
