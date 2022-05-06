@@ -1,5 +1,5 @@
 with fulfillments as (
-    select * from {{ ref('stg_production_fulfillments') }}
+    select * from {{ ref('stg_production__fulfillments') }}
 ),
 
 customers as (
@@ -13,11 +13,11 @@ orders as (
 final as (
     select
         -- primary key
-        event_id as fulfillment_event_id,
+        fulfillment_event_id,
 
         -- foreign keys
-        order_id,
-        customer_id,
+        fulfillments.order_id,
+        fulfillments.customer_id,
 
         -- dates & timestamps
         created_at,
