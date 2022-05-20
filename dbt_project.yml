@@ -41,8 +41,8 @@ models:
 
       # Grant select to both our Looker and Sigma instances
       +post-hook:
-        - 'grant select on {{ this }} to role SIGMA_ROLE'
-        - 'grant select on {{ this }} to role LOOKER_ROLE'
+        - "{{ grant_select('SIGMA_ROLE') }}"
+        - "{{ grant_select('LOOKER_ROLE') }}"
 
       core:
         +schema: core
