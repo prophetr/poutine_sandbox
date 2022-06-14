@@ -39,6 +39,11 @@ models:
       # Default materialization of marts should be tables
       +materialized: table
 
+      # Persist the table and column descriptions to Snowflake DW
+      +persist_docs:
+        relation: true
+        columns: true
+
       # Grant select to both our Looker and Sigma instances
       +post-hook:
         - "{{ grant_select('SIGMA_ROLE') }}"
