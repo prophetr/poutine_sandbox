@@ -8,7 +8,6 @@ final as (
         product_id,
 
         -- details
-        name as product_name,
         cost as product_cost,
         description as product_description,
         size as product_size,

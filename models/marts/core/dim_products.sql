@@ -6,6 +6,10 @@ stg_order_items as (
     select * from {{ ref("stg_transactions__order_items") }}
 ),
 
+product_full_name_mapping as (
+    select * from {{ ref('product_full_name_mapping') }}
+),
+
 agg_order_items as (
     select
         product_id,
@@ -25,7 +29,7 @@ final as (
         stg_products.product_id,
 
         -- details
-        stg_products.product_name,
+        product_full_name_mapping.product_name,
         stg_products.product_cost,
         stg_products.product_description,
         stg_products.product_size,
@@ -53,6 +57,8 @@ final as (
     from stg_products
     left join agg_order_items
         on stg_products.product_id = agg_order_items.product_id
+    left join product_full_name_mapping
+        on stg_products.product_id = product_full_name_mapping.product_id
 )
 
 select * from final
