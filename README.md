@@ -37,6 +37,16 @@ poutine_shop:
       threads: 8
 
 ```
+# Set up an environment variable
+
+In order to set up account as an environment variable, follow the below steps,
+
+- Activate your virtual environment for poutine shop.
+- Run the command, export sf_account_id="lo43931.us-central1.gcp"
+- Validate the above step by running the command, echo "$sf_account_id"
+- Modify the value for account field to "{{ env_var('sf_account_id') }}" in the profiles.yml file.
+
+
 ​
 ### Using the project:
 ​
