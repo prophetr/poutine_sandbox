@@ -2,6 +2,8 @@ version: 2
 
 models:
   - name: stg_ecommerce_backend__users
+    config:
+      tags: "contains_pii"
     description: >
       One row per user that shopped at Poutine Shop with details like their
       name and non-specific address
