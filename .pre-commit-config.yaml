@@ -7,18 +7,18 @@ minimum_pre_commit_version: '2.18'
 
 repos:
   - repo: https://github.com/sqlfluff/sqlfluff
-    rev: 0.11.2
+    rev: 1.2.1
     hooks:
       - id: sqlfluff-lint
         additional_dependencies: [
-          'dbt-snowflake==1.1.0',
-          'sqlfluff-templater-dbt==0.11.2'
+          'dbt-snowflake==1.2.0',
+          'sqlfluff-templater-dbt==1.2.1'
         ]
       - id: sqlfluff-fix
         stages: [manual]  # this command is available only to run manually
         additional_dependencies: [
-          'dbt-snowflake==1.1.0',
-          'sqlfluff-templater-dbt==0.11.2'
+          'dbt-snowflake==1.2.0',
+          'sqlfluff-templater-dbt==1.2.1'
         ]
 
   - repo: https://github.com/adrienverge/yamllint.git
