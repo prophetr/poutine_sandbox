@@ -37,6 +37,17 @@ poutine_shop:
       threads: 8
 
 ```
+# Set up an environment variable
+
+In order to set up account as an environment variable, follow the below steps,
+
+- Activate your virtual environment for Poutine Shop.
+- Log in to Snowflake and copy the account_id (it's the prefix of the URL e.g. some.account.id.snowflake_computing.com)
+- Run the following command and sub in the Snowflake account_id from the previous step: `export sf_account_id="some.account.id"`
+- Validate the above step by running the command: `echo "$sf_account_id"`
+- Modify the value for account field to "`{{ env_var('sf_account_id') }}"` in the profiles.yml file.
+
+
 ​
 ### Using the project:
 ​
