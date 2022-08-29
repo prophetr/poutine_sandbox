@@ -95,3 +95,10 @@ pre-commit run --hook-stage manual sqlfluff-fix --all-files
 ```
 pre-commit run --hook-stage push yamllint
 ```
+
+# BEAM Event Matrix
+
+| FirstName     | LastName      | City   
+| ------------- | ------------- | --------    |
+| `John`        | Test1         | `NewYork`   |
+| `Bob`         | Test2         | `Toronto`   |
