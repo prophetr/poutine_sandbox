@@ -28,6 +28,9 @@ vars:
 
 # Hooks
 on-run-end:
+  # Suspend warehouse to save credits
+  - "{{ suspend_warehouse() }}"
+
   # Grant usage to both our Looker and Sigma instances
   - "{{ grant_usage_on_schemas(schemas, 'LOOKER_ROLE') }}"
   - "{{ grant_usage_on_schemas(schemas, 'SIGMA_ROLE') }}"
