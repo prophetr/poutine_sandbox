@@ -2,6 +2,8 @@ version: 2
 
 models:
   - name: stg_production__customers
+    config:
+      tags: "contains_pii"
     description: >
       One row per customer with details like address and birth date
     columns:

@@ -8,6 +8,7 @@ dbt_packages/
 venv/
 env/
 dbt-env/
+.dbtenv/
 
 # mac
 .DS_Store

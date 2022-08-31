@@ -3,6 +3,9 @@ version: 2
 models:
 
   - name: dim_customers
+    meta:
+      owner: "@data_team"
+      model_maturity: in dev
     description: >
       One record per customer with details about their first and latest order
       dates, count of orders, number of events and total revenue contributed

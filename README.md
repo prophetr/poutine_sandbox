@@ -37,6 +37,17 @@ poutine_shop:
       threads: 8
 
 ```
+# Set up an environment variable
+
+In order to set up account as an environment variable, follow the below steps,
+
+- Activate your virtual environment for Poutine Shop.
+- Log in to Snowflake and copy the account_id (it's the prefix of the URL e.g. some.account.id.snowflake_computing.com)
+- Run the following command and sub in the Snowflake account_id from the previous step: `export sf_account_id="some.account.id"`
+- Validate the above step by running the command: `echo "$sf_account_id"`
+- Modify the value for account field to "`{{ env_var('sf_account_id') }}"` in the profiles.yml file.
+
+
 ​
 ### Using the project:
 ​
@@ -72,7 +83,7 @@ SQL and YAML styles are enforced by linters that runs automatically before any c
 
 # Working with SQLFluff
 - SQLFluff lint is configured as a pre-commit hook that runs on push, so in most cases no explicit commands are needed. This will only list errors and will not fix any errors if found.
-- If you would like to run SQLFluff lint manually, or would like to run it in fix mode, you can do so with the following commands which will run them through pre-commit. 
+- If you would like to run SQLFluff lint manually, or would like to run it in fix mode, you can do so with the following commands which will run them through pre-commit.
 ```
 pre-commit run --hook-stage push sqlfluff-lint --all-files
 pre-commit run --hook-stage manual sqlfluff-fix --all-files
@@ -84,3 +95,12 @@ pre-commit run --hook-stage manual sqlfluff-fix --all-files
 ```
 pre-commit run --hook-stage push yamllint
 ```
+
+# Working with dbt-coverage
+- dbt-coverage is a single CLI tool which checks your dbt project for missing documentation and tests. More info found [here](https://github.com/slidoapp/dbt-coverage).
+- The command `dbt docs generate` must be run first.
+- Once installed, there are 2 main commands to generate test and doc coverage reports:
+  - Test Coverage: `dbt-coverage compute test --cov-report coverage-test.json`
+  - Doc Coverage: `dbt-coverage compute docs --cov-report coverage-doc.json`
+    - Optionally, you may make the run fail if you add `--cov-fail-under 0.5` (range between 0 and 1) to the end of the command, where 0.5 means you must have at least 50% of all docs/tests covered.
+- More advanced commands are available in the docs linked above
