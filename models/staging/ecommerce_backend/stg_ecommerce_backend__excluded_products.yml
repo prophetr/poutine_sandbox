@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_ecommerce_backend__excluded_products
+    description: >
+      All records with null sku's OR non-unique sku code OR no matching distribution centers relationship (existing in backend table 'products' referenced using aliasing in model 'all_products')
+    columns:
+      - name: product_id
+      - name: cost
+      - name: category
+      - name: product_name
+      - name: brand
+      - name: retail_price
+      - name: department
+      - name: sku
+      - name: distribution_center_id
