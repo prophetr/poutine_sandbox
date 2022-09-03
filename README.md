@@ -97,25 +97,12 @@ pre-commit run --hook-stage push yamllint
 ```
 
 # BEAM Event Matrix
+This BEAM event matrix is a work in progress, the next iteration will: 
+- be worked on after we incorporate more raw data 
+- will include hyperlinks/different formatting
 
-
-|                                           | **Dimensions** |              |          |            |             |  **Stakeholders** |              |             |                |
-| ----------------------------------------- |--------------- | ------------ | -------- | ---------- | ----------- |------------------ | ------------ | ----------- | -------------- |
-| **Business Process**                      | **Fact Type**  | **Customer** | **Cook** | **Driver** | **Product** |    **Finance**    | **Marketing**| **Product** | **Operations** |  
-|                                           |                |              |          |            |             |                   |              |             |                | 
-| ***Orders***                              |   AS/TF        |       X      |          |            |      X      |         X         |       X      |      X      |      X         |
-| `Customer orders poutine`                 |   TF           |       X      |    X     |            |      X      |                   |              |             |      X         |
-|  `Cook prepares poutine `                 |   TF           |       X      |    X     |            |      X      |                   |              |             |      X         |
-|   `Driver picks up poutine`               |   TF           |       X      |          |      X     |      X      |                   |              |             |      X         |
-|    `Driver delivers poutine`              |   TF           |       X      |          |      X     |      X      |                   |              |             |      X         |
-| `Order Lifecycle Events`                  |   CF           |       X      |    X     |      X     |      X      |                   |              |      X      |      X         |
-| `Daily Poutine Orders and Inventory`      |   PS           |              |          |            |      X      |         X         |       X      |             |      X         |
-|                                           |                |              |          |            |             |                   |              |             |                |
-| ***Sessions***                            |   AS/TF        |       X      |          |            |             |                   |       X      |      X      |                |
-|  `User visits page`                       |   TF           |       X      |          |            |             |                   |       X      |      X      |                |
-|  `User clicks button`                     |   TF           |       X      |          |            |             |                   |       X      |      X      |                |
-|  `User submits form`                      |   TF           |       X      |          |            |             |                   |       X      |      X      |                |
-|  `User adds item to cart`                 |   TF           |       X      |          |            |      X      |                   |       X      |      X      |        X       |
-|  `User checks out cart`                   |   TF           |       X      |          |            |             |                   |       X      |      X      |                |
-| `Session events`                          |   CF           |       X      |          |            |      X      |                   |       X      |      X      |                |     
-| `Daily Session Metrics`                   |   PS           |              |          |            |             |         X         |       X      |      X      |        X       |
+|                                           | **Dimensions** |              |              |           |
+| ----------------------------------------- |--------------- | ------------ | ------------ | --------- |
+| **Business Process**                      | **Fact Type**  | **Customer** | **Products** | **Shops** | 
+|                                           |                |              |              |           |
+| ***Orders***                              |   AS/TF        |       X      |              |           |
