@@ -105,4 +105,4 @@ This BEAM event matrix is a work in progress, the next iteration will:
 | ----------------------------------------- |--------------- | ------------ | ------------ | --------- |
 | **Business Process**                      | **Fact Type**  | **Customer** | **Products** | **Shops** | 
 |                                           |                |              |              |           |
-| ***Orders***                              |   AS/TF        |       X      |              |           |
+| ***Orders***                              |   AS/TF        |       X      |      X       |     X     |
