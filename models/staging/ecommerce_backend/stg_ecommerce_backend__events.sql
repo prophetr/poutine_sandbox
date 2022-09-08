@@ -8,8 +8,11 @@ final as (
         -- primary key
         id as event_id,
 
-        -- foreign key
+        -- foreign keys
         user_id,
+
+        -- dates & timestamps
+        created_at,
 
         -- details
         sequence_number,
@@ -25,10 +28,7 @@ final as (
         browser,
         traffic_source,
         uri,
-        event_type,
-
-        -- dates & timestamps
-        created_at
+        event_type
 
     from events
 )
