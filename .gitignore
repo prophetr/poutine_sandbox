@@ -12,3 +12,6 @@ dbt-env/
 
 # mac
 .DS_Store
+
+#ide
+.idea/
