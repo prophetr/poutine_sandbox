@@ -1,3 +1,16 @@
+{{
+  config(
+    materialized = 'ephemeral'
+    )
+
+}}
+
+/*
+Set the users staging model as ephemeral so that it is usable by other models,
+but not materialized in the database; this helps limit the amount of PII in the
+database.
+*/
+
 with users as (
     select * from {{ source('ecommerce_backend','users') }}
 ),
