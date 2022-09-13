@@ -1,17 +1,17 @@
 config:
-    send_anonymous_usage_stats: False
-    use_colors: True
+    send_anonymous_usage_stats: false
+    use_colors: true
 
 poutine_shop:
-  target: ci
-  outputs:
-    ci:
-      type: snowflake
-      account: "{{ env_var('PROFILES_YML_SNOWFLAKE_ACCOUNT') }}"
-      warehouse: elt_xs_wh
-      database: poutineshop_dev_db
-      schema: dbt_ci
-      user: "{{ env_var('PROFILES_YML_SNOWFLAKE_USER') }}"
-      password: "{{ env_var('PROFILES_YML_SNOWFLAKE_PASSWORD') }}"
-      role: github_role
-      threads: 8
+    target: ci
+    outputs:
+      ci:
+        type: snowflake
+        account: "{{ env_var('PROFILES_YML_SNOWFLAKE_ACCOUNT') }}"
+        warehouse: elt_xs_wh
+        database: poutineshop_dev_db
+        schema: dbt_ci
+        user: "{{ env_var('PROFILES_YML_SNOWFLAKE_USER') }}"
+        password: "{{ env_var('PROFILES_YML_SNOWFLAKE_PASSWORD') }}"
+        role: github_role
+        threads: 8
