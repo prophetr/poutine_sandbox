@@ -96,6 +96,13 @@ pre-commit run --hook-stage manual sqlfluff-fix --all-files
 pre-commit run --hook-stage push yamllint
 ```
 
+# Working with pre-commit-dbt
+- pre-commit-dbt is configured as a set of pre-commit hooks, so in most cases no explicit commands are needed. These hooks will ensure the dbt project is following standard convention. This will only list errors and will not fix any errors if found.
+- If you would like to run pre-commit-dbt manually, you can do so with the following command which will run it through pre-commit.
+```
+pre-commit run <pre-commit-dbt hook_id> --all-files --hook-stage push
+```
+
 # Working with dbt-coverage
 - dbt-coverage is a single CLI tool which checks your dbt project for missing documentation and tests. More info found [here](https://github.com/slidoapp/dbt-coverage).
 - The command `dbt docs generate` must be run first.

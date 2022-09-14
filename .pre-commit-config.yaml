@@ -26,3 +26,11 @@ repos:
     hooks:
       - id: yamllint
         args: [-c=.yamllint]
+
+  - repo: https://github.com/Montreal-Analytics/pre-commit-dbt
+    rev: 1.0.1
+    hooks:
+      - id: dbt-docs-generate
+      - id: check-model-has-tests
+      - id: check-script-semicolon
+      - id: check-script-ref-and-source
