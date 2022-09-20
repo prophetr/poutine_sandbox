@@ -9,20 +9,20 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout branch
-      uses: actions/checkout@v2
-    - name: Setup python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
-    - id: file_changes
-      uses: trilom/file-changes-action@v1.2.4
-      with:
-        output: ' '
-    - run: echo ${{ steps.file_changes.outputs.files}}
-    - uses: offbi/pre-commit-dbt@v1.0.0
-      env:
-        DB_PASSWORD: ${{ secrets.SuperSecret }}
-      with:
-        args: run --files ${{ steps.file_changes.outputs.files}}
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - id: file_changes
+        uses: trilom/file-changes-action@v1.2.4
+        with:
+          output: ' '
+      - run: echo ${{ steps.file_changes.outputs.files}}
+      - uses: offbi/pre-commit-dbt@v1.0.0
+        env:
+          DB_PASSWORD: ${{ secrets.SuperSecret }}
+        with:
+          args: run --files ${{ steps.file_changes.outputs.files}}
