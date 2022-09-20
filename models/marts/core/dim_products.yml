@@ -10,7 +10,7 @@ models:
         tests:
           - not_null
           - unique
-      - name: product_cost
+      - name: product_price
         description: Cost of product
       - name: product_description
         description: Description of product
