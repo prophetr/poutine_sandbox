@@ -21,7 +21,7 @@ jobs:
         with:
           output: ' '
       - run: echo ${{ steps.file_changes.outputs.files}}
-      - uses: Montreal-Analytics/dbt-gloss
+      - uses: Montreal-Analytics/dbt-gloss@main
         env:
           DB_PASSWORD: ${{ secrets.SuperSecret }}
         with:
