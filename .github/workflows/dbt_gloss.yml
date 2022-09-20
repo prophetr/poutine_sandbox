@@ -21,7 +21,7 @@ jobs:
         with:
           output: ' '
       - run: echo ${{ steps.file_changes.outputs.files}}
-      - uses: offbi/pre-commit-dbt@v1.0.0
+      - uses: Montreal-Analytics/dbt-gloss@v1.0.0
         env:
           DB_PASSWORD: ${{ secrets.SuperSecret }}
         with:
