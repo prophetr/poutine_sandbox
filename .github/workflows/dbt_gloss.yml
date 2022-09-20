@@ -24,4 +24,5 @@ jobs:
       - uses: Montreal-Analytics/dbt-gloss@main
         env:
           DB_PASSWORD: ${{ secrets.SuperSecret }}
-
+        with:
+          args: 'run'
