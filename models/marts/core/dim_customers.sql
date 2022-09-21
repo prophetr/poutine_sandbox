@@ -13,8 +13,8 @@ fill_events as (
 customers_orders as (
     select
         customer_id,
-        min(order_created_at) as first_order_created_at,
-        max(order_created_at) as latest_order_created_at,
+        min(order_created_at) as first_order_created_at
+        ,max(order_created_at) as latest_order_created_at,
         sum(order_total) as sum_order_revenue,
         count(order_id) as count_orders
     from orders
