@@ -1,6 +1,6 @@
 # all commands by default will run on every push, not every commit
 default_install_hook_types: [pre-push]
-default_stages: [push]
+default_stages: [push, commit]
 
 # some configs are only available after v2.18
 minimum_pre_commit_version: '2.18'
