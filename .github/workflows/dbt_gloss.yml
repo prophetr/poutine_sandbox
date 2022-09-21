@@ -25,5 +25,4 @@ jobs:
         env:
           DB_PASSWORD: ${{ secrets.SuperSecret }}
         with:
-          args: 
-            - --files ${{ steps.file_changes.outputs.files}}
+          args: --files ${{ steps.file_changes.outputs.files}}
