@@ -1,6 +1,6 @@
 # all commands by default will run on every push, not every commit
 default_install_hook_types: [pre-push]
-default_stages: [push]
+default_stages: [commit]
 
 # some configs are only available after v2.18
 minimum_pre_commit_version: '2.18'
@@ -27,10 +27,11 @@ repos:
       - id: yamllint
         args: [-c=.yamllint]
 
-  - repo: https://github.com/Montreal-Analytics/pre-commit-dbt
+  - repo: https://github.com/Montreal-Analytics/dbt-gloss
     rev: 1.0.1
     hooks:
       - id: dbt-docs-generate
       - id: check-model-has-tests
-      - id: check-script-semicolon
+      - id: check-model-has-description
       - id: check-script-ref-and-source
+      - id: check-source-has-all-columns
