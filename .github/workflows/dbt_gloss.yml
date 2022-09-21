@@ -20,9 +20,8 @@ jobs:
         uses: trilom/file-changes-action@v1.2.4
         with:
           output: ' '
-      - run: echo ${{ steps.file_changes.outputs.files}}
       - uses: Montreal-Analytics/dbt-gloss@fixng_action
         env:
           DB_PASSWORD: ${{ secrets.SuperSecret }}
         with:
-          args: run --files ${{ steps.file_changes.outputs.files}} --hook-stage push
+          args: 'run --files ${{ steps.file_changes.outputs.files}} --hook-stage push'
