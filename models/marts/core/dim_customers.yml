@@ -6,28 +6,24 @@ models:
     meta:
       owner: "@data_team"
       model_maturity: in dev
-    description: >
-      One record per customer with details about their first and latest order
-      dates, count of orders, number of events and total revenue contributed
-      by the customer. This table is designed to join any fact table which
-      contains customer_id as the foreign key.
+    description: '{{ doc("dim_customers") }}'
     columns:
       - name: customer_id
-        description: Primary key of the dim_customers table.
+        description: '{{ doc("production__customer_id") }}'
         tests:
           - not_null
           - unique
       - name: first_order_created_at
-        description: Customer's first order timestamp.
+        description: '{{ doc("core_customers__first_order_created_at") }}'
       - name: latest_order_created_at
-        description: Customer's latest order timestamp.
+        description: '{{ doc("core_customers__latest_order_created_at") }}'
       - name: customer_name
-        description: Name of the customer.
+        description: '{{ doc("production_customers__customer_name") }}'
       - name: customer_gender
-        description: Gender of the customer.
+        description: '{{ doc("production_customers__customer_gender") }}'
       - name: count_orders
-        description: Total number of orders placed by the customer.
+        description: '{{ doc("core_customers__count_orders") }}'
       - name: count_unique_events
-        description: Total number of events initiated by the customer.
+        description: '{{ doc("core_customers__count_unique_events") }}'
       - name: sum_order_revenue
-        description: Total amount spent by the customer.
+        description: '{{ doc("core_customers__sum_order_revenue") }}'

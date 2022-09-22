@@ -2,48 +2,45 @@ version: 2
 
 models:
   - name: stg_transactions__order_items
-    description: >
-      One table per order item with keys for the relevant product and order;
-      the order is linked to 1+ order items
+    description: '{{ doc("stg_transactions__order_items") }}'
     columns:
       - name: order_item_unique_sk
-        description: unique identifier for each ordered item
+        description: >
+          '{{ doc("transactions_orders_items__order_item_unique_sk") }}'
         tests:
           - not_null
           - unique
       - name: order_id
-        description: Unique order id
+        description: '{{ doc("transactions__order_id") }}'
         tests:
           - not_null
           - relationships:
               to: ref('stg_transactions__orders')
               field: order_id
       - name: product_id
-        description: product id
+        description: '{{ doc("production__product_id") }}'
         tests:
           - not_null
           - relationships:
               to: ref('stg_production__products')
               field: product_id
       - name: customer_id
-        description: customer id
+        description: '{{ doc("production__customer_id") }}'
         tests:
           - not_null
           - relationships:
               to: ref('stg_production__customers')
               field: customer_id
       - name: quantity
-        description: Number of products
+        description: '{{ doc("transactions_orders__quantity") }}'
         tests:
           - dbt_utils.expression_is_true:
               expression: ">0"
       - name: product_name
         description: Name of order item
       - name: unit_price
-        description: Price of 1 unit of the product
+        description: '{{ doc("transactions_orders_items__unit_price") }}'
       - name: price
-        description: >
-          Combined price for all units in order item (i.e. unit_price
-          multiplied by quantity)
+        description: '{{ doc("transactions_orders_items__price") }}'
       - name: order_created_at
-        description: Created at date
+        description: '{{ doc("transactions_orders__created_at") }}'

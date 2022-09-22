@@ -4,21 +4,19 @@ models:
   - name: stg_ecommerce_backend__events
     config:
       tags: "contains_pii"
-    description: >
-      One row per page visit event on the Poutine Shop website with details
-      about the session context
+    description: '{{ doc("stg_ecommerce_backend__events") }}'
     columns:
       - name: event_id
-        description: '{{ doc("ecommerce_backend__events__id") }}'
+        description: '{{ doc("ecommerce_backend__event_id") }}'
         tests:
           - unique
           - not_null
       - name: sequence_number
-        description: '{{ doc("ecommerce_backend__events__sequence_number") }}'
+        description: '{{ doc("ecommerce_backend_events__sequence_number") }}'
         tests:
           - not_null
       - name: session_id
-        description: '{{ doc("ecommerce_backend__events__session_id") }}'
+        description: '{{ doc("ecommerce_backend_events__session_id") }}'
         tests:
           - not_null
       - name: created_at
@@ -42,10 +40,10 @@ models:
       - name: browser
         description: '{{ doc("ecommerce_backend__browser") }}'
       - name: traffic_source
-        description: '{{ doc("ecommerce_backend__events__traffic_source") }}'
+        description: '{{ doc("ecommerce_backend_events__traffic_source") }}'
       - name: user_id
-        description: '{{ doc("ecommerce_backend__users__id") }}'
+        description: '{{ doc("ecommerce_backend__user_id") }}'
       - name: uri
-        description: '{{ doc("ecommerce_backend__events__uri") }}'
+        description: '{{ doc("ecommerce_backend_events__uri") }}'
       - name: event_type
-        description: '{{ doc("ecommerce_backend__events__event_type") }}'
+        description: '{{ doc("ecommerce_backend_events__event_type") }}'

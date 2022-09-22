@@ -2,42 +2,40 @@ version: 2
 
 models:
   - name: stg_transactions__orders
-    description: >
-      One row per order with a key to link it to its customer and details like
-      quantity and total price
+    description: '{{ doc("stg_transactions__order") }}'
     columns:
       - name: order_id
-        description: Unique identifier for orders.
+        description: '{{ doc("transactions__order_id") }}'
         tests:
           - not_null
           - unique
       - name: customer_id
-        description: unique identifier for customers
+        description: '{{ doc("production__customer_id") }}'
         tests:
           - not_null
           - relationships:
               to: ref('stg_production__customers')
               field: customer_id
       - name: shop_id
-        description: Unique identifier for the shop that the order was placed.
+        description: '{{ doc("production__shop_id") }}'
         tests:
           - not_null
           - relationships:
               to: ref('stg_production__shops')
               field: shop_id
       - name: order_quantity
-        description: Number of goods
+        description: '{{ doc("transactions_orders__quantity") }}'
         tests:
           - dbt_utils.expression_is_true:
               expression: ">0"
       - name: order_subtotal
-        description: Subtotal of goods without tax
+        description: '{{ doc("transactions_orders__subtotal") }}'
       - name: order_tax
-        description: Tax amount
+        description: '{{ doc("transactions_orders__tax") }}'
       - name: order_total
-        description: Total amount (Subtotal + Tax)
+        description: '{{ doc("transactions_orders__total") }}'
         tests:
           - dbt_utils.expression_is_true:
               expression: "= order_subtotal + order_tax"
       - name: order_created_at
-        description: Created at date
+        description: '{{ doc("transactions_orders__created_at") }}'
