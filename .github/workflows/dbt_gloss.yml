@@ -24,4 +24,4 @@ jobs:
         env:
           DB_PASSWORD: ${{ secrets.SuperSecret }}
         with:
-          args: 'run --hook-stage push'
+          args: run --files ${{ steps.file_changes.outputs.files}} --hook-stage push'
