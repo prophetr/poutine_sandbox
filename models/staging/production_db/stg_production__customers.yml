@@ -4,27 +4,29 @@ models:
   - name: stg_production__customers
     config:
       tags: "contains_pii"
-    description: >
-      One row per customer with details like address and birth date
+    description: '{{ doc("stg_production__customers") }}'
     columns:
       - name: customer_id
-        description: customer unique identifier
+        description: '{{ doc("production__customer_id") }}'
         tests:
           - not_null
           - unique
       - name: customer_name
-        description: Customer Name
+        description: '{{ doc("production_customers__customer_name") }}'
       - name: customer_birth_date
-        description: Customer birthdate
+        description: >
+          '{{ doc("production_customers__customer_birth_date") }}'
       - name: customer_city
-        description: Customer city
+        description: '{{ doc("production_customers__customer_city") }}'
       - name: customer_state
-        description: Customer state
+        description: '{{ doc("production_customers__customer_state") }}'
       - name: customer_zip_code
-        description: Customer zipcode
+        description: >
+          '{{ doc("production_customers__customer_zip_code") }}'
       - name: customer_phone_number
-        description: Customer phone number
+        description: >
+          '{{ doc("production_customers__customer_phone_number") }}'
       - name: customer_email
-        description: Customer email
+        description: '{{ doc("production_customers__customer_email") }}'
       - name: customer_gender
-        description: Customer gender
+        description: '{{ doc("production_customers__customer_gender") }}'

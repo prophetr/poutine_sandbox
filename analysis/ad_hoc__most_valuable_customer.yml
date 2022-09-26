@@ -9,7 +9,7 @@ analyses:
       tags: analysis
     columns:
       - name: user_id
-        description: '{{ doc("ecommerce_backend__users__id") }}'
+        description: '{{ doc("ecommerce_backend__user_id") }}'
       - name: first_purchase_at
         description: The date on which the user made his/her first purchase
       - name: recent_purchase_at

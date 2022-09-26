@@ -16,7 +16,13 @@ customers_orders as (
         min(order_created_at) as first_order_created_at,
         max(order_created_at) as latest_order_created_at,
         sum(order_total) as sum_order_revenue,
-        count(order_id) as count_orders
+        count(order_id) as count_orders,
+        iff(
+            (count_orders >= {{ var('true_canadian_order_treshold') }}
+                or sum_order_revenue >= {{ var('true_canadian_revenue_treshold') }}),
+            true,
+            false
+        ) as is_true_canadian
     from orders
     group by 1
 ),
@@ -41,6 +47,7 @@ final as (
         -- details
         customers.customer_name,
         customers.customer_gender,
+        customers_orders.is_true_canadian,
 
         -- metrics
         coalesce(customers_orders.count_orders, 0) as count_orders,
