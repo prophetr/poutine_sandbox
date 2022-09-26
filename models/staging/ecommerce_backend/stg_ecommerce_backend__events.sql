@@ -14,7 +14,7 @@ final as (
         -- dates & timestamps
         created_at,
 
-        -- details 
+        -- details
         sequence_number,
         session_id,
         ip_address,

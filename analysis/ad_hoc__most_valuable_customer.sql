@@ -4,7 +4,7 @@ with order_items as (
 
 final as (
     select
-        -- primary key all
+        -- primary key
         order_items.user_id as user_id,
 
         -- dates
