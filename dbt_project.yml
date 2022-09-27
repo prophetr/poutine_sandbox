@@ -1,9 +1,9 @@
 # These are base configs for dbt.
 # You probably won't need to change these!
-name: "poutine_shop"
-version: "1.0.0"
+name: 'poutine_shop'
+version: '1.0.0'
 config-version: 2
-profile: "poutine_shop"
+profile: 'poutine_shop'
 model-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
@@ -53,7 +53,7 @@ models:
       # In dbt 1.2+ there is an easy-to-use grant config for provisioning access
       # Acts similar to the post_hook below except post-book is more flexible
       +grants:
-        select: ["LOOKER_ROLE", "SIGMA_ROLE"]
+        select: ['LOOKER_ROLE', 'SIGMA_ROLE']
 
       # Default materialization of marts should be tables
       +materialized: table
