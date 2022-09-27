@@ -5,7 +5,7 @@ models:
     description: >
       '{{ doc("fct_orders") }}'
 
-      TODO: add fulfillment details, currently this table only includes order fdskjhadfkghfkdjhgjkldfhgkjshsdgkfhsdlfkjdsfkldsf
+      TODO: add fulfillment details, currently this table only includes order
       item purchase
     columns:
       - name: orders_sk
@@ -23,6 +23,13 @@ models:
         description: '{{ doc("production__customer_id") }}'
       - name: shop_id
         description: '{{ doc("production__shop_id") }}'
+
+
+
+
+
+
+        
       - name: order_quantity
         description: '{{ doc("transactions_orders__quantity") }}'
       - name: unit_price
