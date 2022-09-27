@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DBT_PROFILES_DIR: ..
+      DBT_PROFILES_DIR: .ci/
 
       # Declare all environment variables needed in profiles.yml
       PROFILES_YML_SNOWFLAKE_ACCOUNT: ${{secrets.SNOWFLAKE_ACCOUNT_ID}}
@@ -63,7 +63,7 @@ jobs:
   #   runs-on: ubuntu-latest
 
   #   env:
-  #     DBT_PROFILES_DIR: ..
+  #     DBT_PROFILES_DIR: .ci/
 
   #     # Declare all environment variables needed in profiles.yml
   #     PROFILES_YML_SNOWFLAKE_ACCOUNT: ${{secrets.SNOWFLAKE_ACCOUNT_ID}}
