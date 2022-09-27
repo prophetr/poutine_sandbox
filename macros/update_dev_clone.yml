@@ -1,0 +1,32 @@
+version: 2
+
+macros:
+  - name: update_dev_clone
+    description: >
+      This macro creates or updates a development schema within a provided dev
+      database (by default). Schema name generation is dependent on target and
+      default schema defined in the .dbt/profiles.yml
+
+      All schemas will be nested within target.schema and custom schema names
+      ignore when target!=prod in accordance with generate_schema_name
+      modifications within this project.
+
+      Allocating both individual schemas desired to clone, and a different
+      target database is possible, though these arguments default to all schemas
+      within production (save for 'information_schema' and 'public') and the
+      dev_db variable within dbt_project.yml
+
+    docs:
+      show: false
+    arguments:
+      - name: schemas
+        type: list of strings
+        description: >
+          List of schemas to be cloned from production database.
+          Defaults to all schemas in not provided.
+      - name: target_db
+        type: string
+        description: >
+          Target database destination to clone schemas within.
+          Created if does not exist, defaulted to 'dev_db' variable within
+          dbt_project.yml

@@ -1,0 +1,18 @@
+version: 2
+
+macros:
+  - name: update_prod_clone
+    description: >
+      This macro creates a cloned production database from the original
+      production database, with selectively cloning only the schemas provided
+      in argument. Target and production databases are defined as variables
+      within dbt_project.yml, though the macro will only be triggered if
+      target.database is equal to the production db.
+
+    docs:
+      show: false
+    arguments:
+      - name: schemas
+        type: list of strings
+        description: >
+          List of schemas to be cloned from production database.

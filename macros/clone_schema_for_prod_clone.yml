@@ -1,0 +1,19 @@
+version: 2
+
+macros:
+  - name: clone_schema_for_prod_clone
+    description: >
+      This macro clones the specified production schema from the original
+      production database, while granting neccessary privileges and ownership
+      and revoking grants associated with production schema.
+
+      Target and production databases, as well as database development role,
+      are defined as variables within dbt_project.yml.
+
+    docs:
+      show: false
+    arguments:
+      - name: schema_name
+        type: string
+        description: >
+          Schemas to be cloned from production database to cloned db.
