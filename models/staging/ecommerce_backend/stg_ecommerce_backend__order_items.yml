@@ -2,31 +2,29 @@ version: 2
 
 models:
   - name: stg_ecommerce_backend__order_items
-    description: >
-      One row per order item that was purchsed from the Poutine Shop; every
-      order has 1+ order items
+    description: '{{ doc("stg_ecommerce_backend__order_items") }}'
     columns:
       - name: order_item_id
-        description: '{{ doc("ecommerce_backend__order_items__id") }}'
+        description: '{{ doc("ecommerce_backend__order_item_id") }}'
         tests:
           - unique
           - not_null
       - name: order_id
-        description: '{{ doc("ecommerce_backend__orders__id") }}'
+        description: '{{ doc("ecommerce_backend__order_id") }}'
         tests:
           - not_null
       - name: user_id
-        description: '{{ doc("ecommerce_backend__users__id") }}'
+        description: '{{ doc("ecommerce_backend__user_id") }}'
         tests:
           - not_null
       - name: inventory_item_id
-        description: '{{ doc("ecommerce_backend__inventory_items__id") }}'
+        description: '{{ doc("ecommerce_backend__inventory_item_id") }}'
         tests:
           - not_null
       - name: sale_price
-        description: '{{ doc("ecommerce_backend__order_items__sale_price") }}'
+        description: '{{ doc("ecommerce_backend_order_items__sale_price") }}'
       - name: status
-        description: '{{ doc("ecommerce_backend__order_items__status") }}'
+        description: '{{ doc("ecommerce_backend_order_items__status") }}'
         tests:
           - not_null
           - accepted_values:

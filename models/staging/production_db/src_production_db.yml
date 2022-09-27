@@ -12,9 +12,9 @@ sources:
         description: A table of all customers
         columns:
           - name: name
-            description: Customer Name
+            description: Customer name
           - name: birthdate
-            description: Customer birth date
+            description: Customer birthdate
           - name: city
             description: Customer city
           - name: state
@@ -28,7 +28,7 @@ sources:
           - name: gender
             description: Customer gender
           - name: customer_id
-            description: Customer unique id
+            description: Customer unique identifier
             tests:
               - unique
               - not_null

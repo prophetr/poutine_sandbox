@@ -23,6 +23,10 @@ agg_order_items as (
     group by product_id
 ),
 
+product_price_mapping as (
+    select * from {{ ref('product_category_and_price_mapping') }}
+),
+
 final as (
     select
         -- primary key
@@ -30,12 +34,14 @@ final as (
 
         -- details
         product_full_name_mapping.product_name,
-        stg_products.product_cost,
+        stg_products.product_price,
         stg_products.product_description,
         stg_products.product_size,
         stg_products.product_type,
         agg_order_items.product_first_order_at,
         agg_order_items.product_recent_order_at,
+        product_price_mapping.category as product_category,
+        product_price_mapping.price_multiplier as price_multiplier,
 
         -- metrics
         coalesce(agg_order_items.total_unique_buyers, 0) as total_unique_buyers,
@@ -52,13 +58,17 @@ final as (
             order by
                 agg_order_items.total_product_revenue
                 desc)
-        as total_product_revenue_rank
+        as total_product_revenue_rank,
+        (stg_products.product_price * product_price_mapping.price_multiplier)
+        as product_retail_price
 
     from stg_products
     left join agg_order_items
         on stg_products.product_id = agg_order_items.product_id
     left join product_full_name_mapping
         on stg_products.product_id = product_full_name_mapping.product_id
+    left join product_price_mapping
+        on stg_products.product_id = product_price_mapping.product_id
 )
 
 select * from final

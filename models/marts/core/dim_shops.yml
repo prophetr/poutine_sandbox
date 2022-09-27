@@ -2,28 +2,24 @@ version: 2
 
 models:
   - name: dim_shops
-    description: |
-      One record per shop with details about shop's first and latest order
-      dates, count of orders, count of unique customers, and total revenue
-      contributed by the shop. This table is designed to join any fact table
-      which contains shop_id as the foreign key.
+    description: '{{ doc("dim_shops") }}'
     columns:
       - name: shop_id
-        description: Primary key of the dim_shop table.
+        description: '{{ doc("production__shop_id") }}'
         tests:
           - unique
           - not_null
       - name: address
-        description: Street address of the poutine shop.
+        description: '{{ doc("production_shops__address") }}'
       - name: city
-        description: City name of the poutine shop location.
+        description: '{{ doc("production_shops__city") }}'
       - name: province
-        description: Two character province code for the poutine shop location.
+        description: '{{ doc("production_shops__province") }}'
       - name: country
-        description: Two character country code for the poutine shop location.
+        description: '{{ doc("production_shops__country") }}'
       - name: postal_code
-        description: Postal code of the poutine shop location.
+        description: '{{ doc("production_shops__postal_code") }}'
       - name: latitude
-        description: Latitude coordinates for the location of the poutine shop.
+        description: '{{ doc("production_shops__latitude") }}'
       - name: longitude
-        description: Longitude coordinates for the location of the poutine shop.
+        description: '{{ doc("production_shops__longitude") }}'
