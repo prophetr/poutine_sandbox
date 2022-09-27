@@ -2,9 +2,9 @@ name: ci
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
 
@@ -16,9 +16,9 @@ jobs:
       DBT_PROFILES_DIR: ..
 
       # Declare all environment variables needed in profiles.yml
-      PROFILES_YML_SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT_ID }}
-      PROFILES_YML_SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_CI_SERVICE_ACCOUNT_USERNAME }}
-      PROFILES_YML_SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_CI_SERVICE_ACCOUNT_PASSWORD }}
+      PROFILES_YML_SNOWFLAKE_ACCOUNT: ${{secrets.SNOWFLAKE_ACCOUNT_ID}}
+      PROFILES_YML_SNOWFLAKE_USER: ${{secrets.SNOWFLAKE_CI_SERVICE_ACCOUNT_USERNAME}} # noqa
+      PROFILES_YML_SNOWFLAKE_PASSWORD: ${{secrets.SNOWFLAKE_CI_SERVICE_ACCOUNT_PASSWORD}} # noqa
 
     steps:
 
@@ -37,7 +37,7 @@ jobs:
       - name: Install dbt Packages
         run: dbt deps
 
-      - run: git checkout ${{ steps.comment-branch.outputs.head_ref }}
+      - run: git checkout ${{steps.comment-branch.outputs.head_ref}}
 
       - name: Lint SQL files
         run: |
@@ -54,7 +54,8 @@ jobs:
       - name: 'Yamllint'
         uses: karancode/yamllint-github-action@master
         with:
-          yamllint_file_or_dir: 'models/' #this can be changed if you have .yml files in other directorie
+          # this can be changed if you have .yml files in other directorie
+          yamllint_file_or_dir: 'models/'
           yamllint_strict: false
 
   # dbt-gloss:
@@ -65,9 +66,9 @@ jobs:
   #     DBT_PROFILES_DIR: ..
 
   #     # Declare all environment variables needed in profiles.yml
-  #     PROFILES_YML_SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT_ID }}
-  #     PROFILES_YML_SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_CI_SERVICE_ACCOUNT_USERNAME }}
-  #     PROFILES_YML_SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_CI_SERVICE_ACCOUNT_PASSWORD }}
+  #     PROFILES_YML_SNOWFLAKE_ACCOUNT: ${{secrets.SNOWFLAKE_ACCOUNT_ID}}
+  #     PROFILES_YML_SNOWFLAKE_USER: ${{secrets.SNOWFLAKE_CI_SERVICE_ACCOUNT_USERNAME}} # noqa
+  #     PROFILES_YML_SNOWFLAKE_PASSWORD: ${{secrets.SNOWFLAKE_CI_SERVICE_ACCOUNT_PASSWORD}} # noqa
 
   #   steps:
 
