@@ -1,0 +1,115 @@
+name: ci
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  sqlfluff-lint-files:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+
+    env:
+      DBT_PROFILES_DIR: ..
+
+      # Declare all environment variables needed in profiles.yml
+      PROFILES_YML_SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT_ID }}
+      PROFILES_YML_SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_CI_SERVICE_ACCOUNT_USERNAME }}
+      PROFILES_YML_SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_CI_SERVICE_ACCOUNT_PASSWORD }}
+
+    steps:
+
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dbt and sqlfluff
+        run: pip install dbt-snowflake==1.2.0 sqlfluff-templater-dbt==0.11.2
+
+      - name: Install dbt Packages
+        run: dbt deps
+
+      - run: git checkout ${{ steps.comment-branch.outputs.head_ref }}
+
+      - name: Lint SQL files
+        run: |
+          diff-quality --violations sqlfluff --compare-branch remotes/origin/main
+
+  yamllint-lint-files:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+
+      - name: 'Yamllint'
+        uses: karancode/yamllint-github-action@master
+        with:
+          yamllint_file_or_dir: 'models/' #this can be changed if you have .yml files in other directorie
+          yamllint_strict: false
+
+  # dbt-gloss:
+  #   if: github.event.pull_request.draft == false
+  #   runs-on: ubuntu-latest
+
+  #   env:
+  #     DBT_PROFILES_DIR: ..
+
+  #     # Declare all environment variables needed in profiles.yml
+  #     PROFILES_YML_SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT_ID }}
+  #     PROFILES_YML_SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_CI_SERVICE_ACCOUNT_USERNAME }}
+  #     PROFILES_YML_SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_CI_SERVICE_ACCOUNT_PASSWORD }}
+
+  #   steps:
+
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
+
+  #     - name: Set up Python 3.9
+  #       uses: actions/setup-python@v2
+  #       with:
+  #         python-version: 3.9
+
+  #     - name: Install dbt and dbt-gloss
+  #       run: pip install dbt-snowflake==1.2.0 git+https://github.com/Montreal-Analytics/dbt-gloss.git@v1.1.0
+
+  #     - name: Get changed files
+  #       id: get_file_changes
+  #       uses: trilom/file-changes-action@v1.2.4
+  #       with:
+  #         output: ' '
+
+  #     - name: Get changed .sql files in /models to lint
+  #       id: get_files_to_lint
+  #       shell: bash -l {0}
+  #       run: |
+  #         # Set the command in the $() brackets as an output to use in later steps
+  #         echo "::set-output name=files::$(
+  #         # Issue where grep regular expressions don't work as expected on the
+  #         # Github Actions shell, check dbt/models/ folder
+  #         echo \
+  #         $(echo ${{ steps.get_file_changes.outputs.files_modified }} |
+  #         tr -s ' ' '\n' |
+  #         grep -E '^models.*[.]sql$' |
+  #         tr -s '\n' ' ') \
+  #         $(echo ${{ steps.get_file_changes.outputs.files_added }} |
+  #         tr -s ' ' '\n' |
+  #         grep -E '^models.*[.]sql$' |
+  #         tr -s '\n' ' ')
+  #         )"
+
+  #     - name: Run pre-commit
+  #       shell: bash -l {0}
+  #       run: |
+  #         pre-commit run --files ${{ steps.get_files_to_lint.outputs.files }} --hook-stage push
+
