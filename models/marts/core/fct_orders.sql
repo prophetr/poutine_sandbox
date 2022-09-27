@@ -1,5 +1,6 @@
 with order_items as (
-    select * from {{ ref('stg_transactions__order_items') }}
+    -- select * from {{ ref('stg_transactions__order_items') }}
+    select * from poutineshop_dev_db.dbt_dvo.stg_transactions__order_items
 ),
 
 customers as (

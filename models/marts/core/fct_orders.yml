@@ -5,7 +5,7 @@ models:
     description: >
       '{{ doc("fct_orders") }}'
 
-      TODO: add fulfillment details, currently this table only includes order
+      TODO: add fulfillment details, currently this table only includes order fdskjhadfkghfkdjhgjkldfhgkjshsdgkfh
       item purchase
     columns:
       - name: orders_sk
