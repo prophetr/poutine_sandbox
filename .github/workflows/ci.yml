@@ -49,8 +49,7 @@ jobs:
       - name: Lint SQL files
         run: |
           diff-quality --violations sqlfluff \
-          --compare-branch remotes/origin/main \
-          --config-file .sqlfluff
+          --compare-branch remotes/origin/main
 
   yamllint-lint-files:
     if: github.event.pull_request.draft == false
