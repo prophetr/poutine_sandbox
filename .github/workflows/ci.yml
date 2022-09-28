@@ -32,7 +32,10 @@ jobs:
           python-version: 3.9
 
       - name: Install dbt and sqlfluff
-        run: pip install dbt-snowflake==1.2.0 sqlfluff==1.2.1 sqlfluff-templater-dbt==1.2.1
+        run: |
+          pip install dbt-snowflake==1.2.0 \
+          sqlfluff==1.2.1 \
+          sqlfluff-templater-dbt==1.2.1
 
       - name: Install dbt Packages
         run: dbt deps
@@ -45,7 +48,9 @@ jobs:
 
       - name: Lint SQL files
         run: |
-          diff-quality --violations sqlfluff --compare-branch remotes/origin/main --config-file .sqlfluff
+          diff-quality --violations sqlfluff \
+          --compare-branch remotes/origin/main \
+          --config-file .sqlfluff
 
   yamllint-lint-files:
     if: github.event.pull_request.draft == false
