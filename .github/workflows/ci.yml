@@ -39,6 +39,10 @@ jobs:
 
       - run: git checkout ${{steps.comment-branch.outputs.head_ref}}
 
+      - run: pwd
+
+      - run: ls -a
+
       - name: Lint SQL files
         run: |
           diff-quality --violations sqlfluff --compare-branch remotes/origin/main
