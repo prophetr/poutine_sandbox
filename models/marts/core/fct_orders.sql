@@ -1,5 +1,5 @@
 with order_items as (
-    select * FROM {{ ref('stg_transactions__order_items') }}
+    SELECT * FROM {{ ref('stg_transactions__order_items') }}
 ),
 
 customers as (
