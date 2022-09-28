@@ -1,8 +1,13 @@
 # Poutine Shop
+## An example dbt project by Montreal Analytics
 ​
-This repository contains the data transformation logic for the Poutine Shop data warehouse.
-​
-The project is built on an open source tool: [dbt](https://www.getdbt.com/).
+This repository is an example of [dbt](https://www.getdbt.com/) project best practices and is designed to be used as a reference for other dbt projects.
+
+It contains the data transformation logic for Montreal Analytics' fictional Poutine Shop business.
+
+# Contribution
+
+This project is maintained by the Montreal Analytics team with all contributions coming from the team. We add contributions occassionally to highlight new best practices. 
 
 # Installation
 
