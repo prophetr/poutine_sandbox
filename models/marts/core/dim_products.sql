@@ -60,7 +60,11 @@ final as (
                 desc)
         as total_product_revenue_rank,
         (stg_products.product_price * product_price_mapping.price_multiplier)
-        as product_retail_price
+        as product_retail_price,
+        (stg_products.product_price * product_price_mapping.price_multiplier
+         * 1.13
+        )
+        as product_retail_price_with_tax
 
     from stg_products
     left join agg_order_items
