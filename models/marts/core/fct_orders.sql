@@ -33,12 +33,6 @@ final as (
         order_items.unit_price,
         order_items.price
 
-        -- TODO: update raw data structure and column naming; currently tax is
-        -- only available on the order level which leads to semi-additive and
-        -- additive fields mixing together
-        -- orders.order_tax,
-        -- orders.order_total,
-
     from order_items
     left join customers
         on order_items.customer_id = customers.customer_id
