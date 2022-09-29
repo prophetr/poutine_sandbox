@@ -4,6 +4,11 @@ models:
   - name: stg_production__fulfillments
     description: '{{ doc("stg_production__fulfillments") }}'
     columns:
+      - name: fulfillment_event_id
+        description: '{{ doc("ecommerce_backend__event_id") }}'
+        tests:
+          # - unique TODO Look into uniqueness issue
+          - not_null
       - name: order_id
         description: '{{ doc("transactions__order_id") }}'
         tests:
@@ -20,10 +25,8 @@ models:
               field: customer_id
       - name: created_at
         description: '{{ doc("transactions_orders__created_at") }}'
-      - name: event_id
-        description: '{{ doc("ecommerce_backend__event_id") }}'
       - name: event_name
-        description: Fulfillment event name
+        description: '{{ doc("production_fulfillments__event_name") }}'
         tests:
           - accepted_values:
               values:

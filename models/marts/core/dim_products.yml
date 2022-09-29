@@ -11,7 +11,15 @@ models:
           - not_null
           - unique
       - name: product_price
-        description: Cost of product
+        description: '{{ doc("production_products__product_price") }}'
+      - name: product_category
+        description: '{{ doc("ecommerce_backend_products__category") }}'
+      - name: product_name
+        description: '{{ doc("ecommerce_backend_products__name") }}'
+      - name: product_retail_price
+        description: '{{ doc("ecommerce_backend_products__retail_price") }}'
+      - name: price_multiplier
+        description: '{{ doc("core_products__price_multiplier") }}'
       - name: product_description
         description: Description of product
       - name: product_size

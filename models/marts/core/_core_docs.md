@@ -58,12 +58,20 @@ Total number of events initiated by the customer.
 Total amount spent by the customer.
 {% enddocs %}
 
+{% docs core_customers__is_true_canadian %}
+A flag for indicating if a customer has achieved True Canadian status by ordering enough items or by spending enough revenue. The thresholds for these two conditions are managed as variables in the dbt_project.yml file.
+{% enddocs %}
+
 
 # dim_dates Descriptions
 
 TODO
 
 # dim_products Descriptions
+
+{% docs core_products__price_multiplier %}
+The multiplier used to determine what the retail price of a product will be (e.g. 1.35x the cost of the product).
+{% enddocs %}
 
 {% docs core_products__total_unique_buyers %}
 The number of unique customers who bought this product.
@@ -104,8 +112,4 @@ The product_price multiply by the constant price_multiplier
 
 {% docs core_products__product_category %}
 The category for each products to help distinguish constant price_multiplier
-{% enddocs %}
-
-{% docs core_products__price_multiplier %}
-The constant multiplier by product category to calculate profits
 {% enddocs %}
