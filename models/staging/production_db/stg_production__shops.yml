@@ -9,17 +9,17 @@ models:
         tests:
           - unique
           - not_null
-      - name: address
+      - name: shop_address
         description: '{{ doc("production_shops__address") }}'
-      - name: city
+      - name: shop_city
         description: '{{ doc("production_shops__city") }}'
-      - name: province
+      - name: shop_province
         description: '{{ doc("production_shops__province") }}'
-      - name: country
+      - name: shop_country
         description: '{{ doc("production_shops__country") }}'
-      - name: postal_code
+      - name: shop_postal_code
         description: '{{ doc("production_shops__postal_code") }}'
-      - name: latitude
+      - name: shop_latitude
         description: '{{ doc("production_shops__latitude") }}'
-      - name: longitude
+      - name: shop_longitude
         description: '{{ doc("production_shops__longitude") }}'

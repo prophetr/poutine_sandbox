@@ -12,5 +12,6 @@ seeds:
         tests:
           - not_null
       - name: price_multiplier
+        description: '{{ doc("core_products__price_multiplier") }}'
         tests:
           - not_null

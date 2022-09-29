@@ -27,3 +27,5 @@ models:
         description: '{{ doc("core_customers__count_unique_events") }}'
       - name: sum_order_revenue
         description: '{{ doc("core_customers__sum_order_revenue") }}'
+      - name: is_true_canadian
+        description: '{{ doc("core_customers__is_true_canadian") }}'

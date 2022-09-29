@@ -3,13 +3,13 @@
 
 This repository is an example of [dbt](https://www.getdbt.com/) project best practices and is designed to be used as a reference for other dbt projects.
 
-It contains the data transformation logic for Montreal Analytics' fictional Poutine Shop business.
+It contains the data transformation logic for [Montreal Analytics](https://montrealanalytics.com/?utm_source=github&utm_campaign=poutineshop)' fictional Poutine Shop business.
 
 &nbsp;
 
 ## Contribution
 
-This project is maintained by the Montreal Analytics team with all contributions coming from the team. We add contributions occassionally to highlight new best practices. 
+This project is maintained by the [Montreal Analytics](https://montrealanalytics.com/?utm_source=github&utm_campaign=poutineshop) team with all contributions coming from the team. We add contributions occassionally to highlight new best practices. 
 
 &nbsp;
 
@@ -73,7 +73,7 @@ Once everything has been setup, try running the following commands:
 
 ### SQL Styleguide + dbt Best Practices
 
-We follow the [Matt Mazur SQL style guide](https://github.com/mattm/sql-style-guide) and the one by [Fishtown Analytics for dbt-specific behaviors](https://github.com/fishtown-analytics/corp/blob/master/dbt_coding_conventions.md#sql-style-guide).
+We follow the [Matt Mazur SQL style guide](https://github.com/mattm/sql-style-guide) and the one by [dbt Labs for dbt-specific behaviors](https://github.com/dbt-labs/corp/blob/main/dbt_style_guide.md).
 
 We also follow the [best practices documented on the dbt website](https://docs.getdbt.com/docs/guides/best-practices/).
 

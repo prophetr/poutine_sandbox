@@ -114,3 +114,9 @@ Latitude coordinates for the location of the poutine shop.
 {% docs production_shops__longitude %}
 Longitude coordinates for the location of the poutine shop.
 {% enddocs %}
+
+## Fulfillment Descriptions
+
+{% docs production_fulfillments__event_name %}
+The event name of a fulfillment action during the delivery of a poutine shop product.
+{% enddocs %}
