@@ -1,8 +1,10 @@
 version: 2
 
 models:
+# TODO that important thing
   - name: dim_products
     description: '{{ doc("dim_products") }}'
+
     columns:
       - name: product_id
         description: '{{ doc("production__product_id") }}'
@@ -35,3 +37,4 @@ models:
         description: '{{ doc("core_products__total_units_sold_rank") }}'
       - name: total_product_revenue_rank
         description: '{{ doc("core_products__total_product_revenue_rank") }}'
+
