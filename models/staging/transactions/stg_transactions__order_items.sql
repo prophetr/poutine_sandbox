@@ -25,10 +25,6 @@ final as (
         cost as unit_price,
         quantity * cost as price
 
-        -- TODO: update raw data structure and column naming; currently this is
-        -- the integer equivalent of cost
-        -- subtotal
-
     from src_order_items
 )
 
