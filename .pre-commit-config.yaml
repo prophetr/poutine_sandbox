@@ -32,7 +32,6 @@ repos:
     hooks:
       - id: dbt-docs-generate
       - id: check-source-table-has-description
-      - id: check-model-has-description
       - id: check-model-columns-have-desc
       - id: check-model-has-all-columns
       - id: check-model-has-tests

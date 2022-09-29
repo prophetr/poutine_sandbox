@@ -13,7 +13,7 @@ models:
         description: '{{ doc("ecommerce_backend_products__cost") }}'
       - name: category
         description: '{{ doc("ecommerce_backend_products__category") }}'
-      - name: product_name
+      - name: name
         description: '{{ doc("ecommerce_backend_products__name") }}'
       - name: brand
         description: '{{ doc("ecommerce_backend_products__brand") }}'
