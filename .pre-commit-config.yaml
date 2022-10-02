@@ -6,33 +6,67 @@ default_stages: [push]
 minimum_pre_commit_version: '2.18'
 
 repos:
-  - repo: https://github.com/sqlfluff/sqlfluff
-    rev: 1.2.1
-    hooks:
-      - id: sqlfluff-lint
-        additional_dependencies: [
-          'dbt-snowflake==1.2.0',
-          'sqlfluff-templater-dbt==1.2.1'
-        ]
-      - id: sqlfluff-fix
-        stages: [manual]  # this command is available only to run manually
-        additional_dependencies: [
-          'dbt-snowflake==1.2.0',
-          'sqlfluff-templater-dbt==1.2.1'
-        ]
+  # - repo: https://github.com/sqlfluff/sqlfluff
+  #   rev: 1.2.1
+  #   hooks:
+  #     - id: sqlfluff-lint
+  #       additional_dependencies: [
+  #         'dbt-snowflake==1.2.0',
+  #         'sqlfluff-templater-dbt==1.2.1'
+  #       ]
+  #     - id: sqlfluff-fix
+  #       stages: [manual]  # this command is available only to run manually
+  #       additional_dependencies: [
+  #         'dbt-snowflake==1.2.0',
+  #         'sqlfluff-templater-dbt==1.2.1'
+  #       ]
 
-  - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.17.0
-    hooks:
-      - id: yamllint
-        args: [-c=.yamllint]
+  # - repo: https://github.com/adrienverge/yamllint.git
+  #   rev: v1.17.0
+  #   hooks:
+  #     - id: yamllint
+  #       args: [-c=.yamllint]
+
+  # - repo: https://github.com/Montreal-Analytics/dbt-gloss
+  #   rev: 1.0.1
+  #   hooks:
+  #     - id: dbt-docs-generate
+  #     - id: check-source-table-has-description
+  #     - id: check-model-columns-have-desc
+  #     - id: check-model-has-all-columns
+  #     - id: check-model-has-tests
+  #       args: ["--test-cnt", "2", "--"]
 
   - repo: https://github.com/StellaMbogo/dbt-gloss-tracking
-    rev: 1.0.1
-    hooks:
-      - id: dbt-docs-generate
-      - id: check-source-table-has-description
-      - id: check-model-columns-have-desc
-      - id: check-model-has-all-columns
-      - id: check-model-has-tests
-        args: ["--test-cnt", "2", "--"]
+  rev: v1.0.0
+  hooks:
+  - id: dbt-clean
+  - id: dbt-deps
+  - id: dbt-compile
+  - id: dbt-docs-generate
+  - id: check-model-has-description
+  - id: check-model-has-properties-file
+  - id: check-model-has-tests-by-name
+    args: ["--tests", "unique=1 not_null=1", "data=0", "--"]
+  - id: check-model-has-tests-by-type
+    args: ["--tests", "schema=2", "data=0", "--"]
+    # Make sure you did not provide a semicolon at the end of the file.
+  - id: check-script-semicolon
+    # Makes sure that you have only refs and sources in your SQL files.
+  - id: check-script-has-no-table-name
+    # Make sure that all sources have a description.
+  - id: check-source-table-has-description
+    # Ensures that the source has freshness options in the properties file
+  - id: check-source-has-freshness
+    args: ["--freshness", "error_after", "warn_after", "--"]
+    # Ensures that the source has a number of tests of a certain name (e.g. data, unique).
+  - id: check-source-has-tests-by-name
+    args: ["--tests", "unique=1 not_null=1", "data=0", "--"]
+    # Ensures that the source has a number of tests of a certain type (data, schema).
+  - id: check-source-has-tests-by-type
+    args: ["--tests", "schema=2", "data=0", "--"]
+    # Make sure that all macros have a description.
+  - id: check-macro-has-description
+    # Ensures that the macro has arguments with descriptions in the properties file
+    ## Looks like this hook is not working with current version.
+    #- id: check-macro-arguments-have-desc

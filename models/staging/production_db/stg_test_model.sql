@@ -21,4 +21,4 @@ final as (
     from src_customers
 )
 
-select * from final
+select * from final limit 1000
