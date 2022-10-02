@@ -27,7 +27,7 @@ repos:
       - id: yamllint
         args: [-c=.yamllint]
 
-  - repo: https://github.com/Montreal-Analytics/dbt-gloss
+  - repo: https://github.com/StellaMbogo/dbt-gloss-tracking
     rev: 1.0.1
     hooks:
       - id: dbt-docs-generate
