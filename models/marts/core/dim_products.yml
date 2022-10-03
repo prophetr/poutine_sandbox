@@ -47,9 +47,6 @@ models:
           sold the most units
       - name: total_product_revenue_rank
         description: '{{ doc("core_products__total_product_revenue_rank") }}'
-<<<<<<< HEAD
-
-=======
       - name: product_category
         description: '{{ doc("core_products__product_category") }}'
       - name: price_multiplier
@@ -58,4 +55,3 @@ models:
         description: '{{ doc("core_products__product_retail_price") }}'
       - name: product_retail_price_with_tax
         description: '{{ doc("core_products__product_retail_price_with_tax") }}'
->>>>>>> main
