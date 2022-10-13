@@ -1,0 +1,26 @@
+version: 2
+
+metrics: 
+  - name: revenue
+    model: ref('fct_orders')
+    label: Revenue ($)
+    timestamp: order_created_at
+    time_grains: [day, week, month, quarter, year]
+    type: sum
+    sql: price
+    dimensions:
+      - customer_id
+      - product_id
+      - shop_id
+
+  - name: products_sold
+    model: ref('fct_orders')
+    label: Count of Products Sold
+    timestamp: order_created_at
+    time_grains: [day, week, month, quarter, year]
+    type: count
+    sql: product_id
+    dimensions:
+      - customer_id
+      - product_id
+      - shop_id
