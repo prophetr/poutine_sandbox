@@ -1,0 +1,33 @@
+{
+    "name": "poutine_shop",
+    // use image, instead of Dockerfile, so as to mount the workspace that have files in-sync
+    "image": "fishtownanalytics/dbt:1.0.0",
+    "runArgs": [
+        "--env-file",
+        ".devcontainer/devcontainer.env"
+    ],
+    // Set *default* container specific settings.json values on container create.
+    // "settings": {
+    //     "python.pythonPath": "/usr/local/bin/python",
+    //     "python.linting.enabled": true,
+    //     "python.linting.pylintEnabled": true,
+    //     "python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
+    //     "sql.linter.run": "onSave",
+    //     "sql.linter.ignoreParsing": false,
+    //     "sql.linter.executablePath": "/usr/local/bin/sqlfluff"
+    // },
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "ms-python.python",
+        "dorzey.vscode-sqlfluff",
+        "redhat.vscode-yaml"
+    ],
+    "forwardPorts": [
+        8080
+    ],
+    // install DBT depen commands after container is started
+    // "postCreateCommand": "dbt deps --project-dir .",
+    "postCreateCommand": "dbt debug --no-version-check",
+    // 
+    "postStartCommand": "pip3 install sqlfluff"
+}

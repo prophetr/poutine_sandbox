@@ -1,0 +1,12 @@
+poutine_shop:
+  outputs:
+    dev:
+      account: "{{ env_var('DB_ACCOUNT') }}"
+      authenticator: "{{ env_var('DB_AUTHENTICATION') }}"
+      database: "{{ env_var('DB_NAME') }}"
+      schema: "{{ env_var('DB_SCHEMA') }}"
+      threads: 8
+      type: snowflake
+      user: "{{ env_var('DB_USER') }}"
+      warehouse: elt_xs_wh
+  target: dev
