@@ -1,0 +1,76 @@
+version: 2
+
+sources:
+  - name: snowflake_sample_data
+    database: snowflake_sample_data
+    schema: TPCDS_SF10TCL
+    description: |
+      Data from Snowflake Sample Data of 10 TB.
+    tables:
+      - name: catalog_sales
+        description: A table of all sales from catalog.
+        columns:
+          - name: cs_order_number
+            description: Catalog Sales Order Number
+            tests:
+              - not_null
+          - name: cs_item_sk
+            description: Catalog Sales Item Key
+            tests:
+              - not_null
+              
+      - name: customer
+        description: A table of all information on customers.
+        columns:
+          - name: c_customer_sk
+            description: the customer primary key
+            tests:
+              - not_null
+              - unique
+          - name: c_customer_id
+            description: the customer primary key
+            tests:
+              - not_null
+              - unique
+              
+      - name: date_dim
+        description: A table of all information on dates.
+        columns:
+          - name: d_date_sk
+            description: the date dimension primary key
+            tests:
+              - not_null
+              - unique
+          - name: d_date_id
+            description: the date dimension primary key
+            tests:
+              - not_null
+              - unique
+          - name: d_date
+            description: the date dimension in format 'YYYY-MM-DD'
+            tests:
+              - not_null
+
+      - name: store_sales
+        description: A table of all sales from stores.
+        columns:
+          - name: ss_ticket_number
+            description: Store Sales Order Number
+            tests:
+              - not_null
+          - name: ss_item_sk
+            description: Store Sales Item Key
+            tests:
+              - not_null
+
+      - name: web_sales
+        description: A table of all sales from web.
+        columns:
+          - name: ws_order_number
+            description: Web Sales Order Number
+            tests:
+              - not_null
+          - name: ws_item_sk
+            description: Web Sales Item Key
+            tests:
+              - not_null

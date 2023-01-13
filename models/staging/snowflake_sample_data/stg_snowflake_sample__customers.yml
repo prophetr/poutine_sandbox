@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_snowflake_sample__customers
+    description: '{{ doc("stg_snowflake_sample__customers") }}'
+    columns:
+      - name: customer_sk
+        description: '{{ doc("snowflake_sample_customers__customer_sk") }}'
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: '{{ doc("snowflake_sample_customers__customer_id") }}'
+        tests:
+          - not_null
+          - unique
+      - name: first_name
+        description: '{{ doc("snowflake_sample_customers__first_name") }}'
+        tests:
+          - not_null

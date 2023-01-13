@@ -8,7 +8,13 @@ table can be joined to any fact table which contains shop_id as the
 foreign key.
 {% enddocs %}
 
+{% docs int_snowflake_sample_sales_unioned %}
+
+{% enddocs %}
+
 # Column-Level Descriptions
+
+## int_shop_orders_dimensionalized
 
 {% docs int_orders__order_count_rank %}
 Ranking of count of orders across shops
@@ -44,4 +50,14 @@ Count of customers.
 
 {% docs int_orders__revenue %}
 Total revenue.
+{% enddocs %}
+
+## int_snowflake_sample_sales_unioned
+
+{% docs int_snowflake_sample__sales_id %}
+
+{% enddocs %}
+
+{% docs int_snowflake_sample__sales_order_number %}
+
 {% enddocs %}

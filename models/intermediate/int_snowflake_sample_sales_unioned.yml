@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: int_snowflake_sample_sales_unioned
+    description: '{{ doc("int_snowflake_sample_sales_unioned") }}'
+    materialized: table
+    columns:
+      - name: sales_id
+        description: '{{ doc("int_snowflake_sample__sales_id") }}'
+        tests:
+          - not_null
+          - unique
+      - name: sales_order_number
+        description: '{{ doc("int_snowflake_sample__sales_order_number") }}'

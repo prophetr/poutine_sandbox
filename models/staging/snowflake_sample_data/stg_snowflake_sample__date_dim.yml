@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_snowflake_sample__date_dim
+    description: '{{ doc("stg_snowflake_sample__date_dim") }}'
+    columns:
+      - name: date_sk
+        description: '{{ doc("snowflake_sample_date_dim__date_sk") }}'
+        tests:
+          - not_null
+          - unique
+      - name: date_id
+        description: '{{ doc("snowflake_sample_date_dim__date_id") }}'
+        tests:
+          - not_null
+          - unique
+      - name: standard_date
+        description: '{{ doc("snowflake_sample_date_dim__standard_date") }}'
+        tests:
+          - not_null

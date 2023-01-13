@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_snowflake_sample__catalog_sales
+    description: '{{ doc("stg_snowflake_sample__catalog_sales") }}'
+    columns:
+      - name: catalog_sales_id
+        description: '{{ doc("snowflake_sample_catalog_sales__catalog_sales_id") }}'
+        tests:
+          - not_null
+          - unique
