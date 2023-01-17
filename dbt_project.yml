@@ -66,10 +66,10 @@ models:
         +schema: core
       
       snowflake_sample:
-        +snowflake_warehouse: "ELT_M_WH"
+        +snowflake_warehouse: "ELT_L_WH"
 
     intermediate:
-      +snowflake_warehouse: "ELT_LWH"
+      +snowflake_warehouse: "ELT_XL_WH"
       +materialized: table
 
     staging:

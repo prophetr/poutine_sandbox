@@ -47,7 +47,7 @@ final as (
         sales_unioned.order_number,
 
         -- details
-        customers.first_name,
+        --customers.first_name,
         sales_unioned.quantity,
         sales_unioned.wholesale_cost,
         sales_unioned.list_price,
@@ -66,20 +66,25 @@ final as (
         sales_unioned.net_profit,
 
         -- dates
-        date_dim.standard_date,
+        --date_dim.standard_date,
 
         -- calculations
         case
             when coalesce(sales_unioned.sales_price, 0) = 0
                 then 1
             else  round(sales_unioned.net_profit / sales_unioned.sales_price * 100, 0) 
-        end as sales_profit_pctg
+        end as sales_profit_pctg--,
+        --row_number() 
+        --over (
+         --   partition by coalesce(sales_unioned.customer_id, sales_unioned.bill_customer_id)
+         --   order by sales_unioned.sold_date_id
+        --) as customer_sales_sequence
 
     from sales_unioned
-    left join customers on 
-        sales_unioned.customer_id = customers.customer_sk
-    left join date_dim on 
-        sales_unioned.sold_date_id = date_dim.date_sk
+    --left join customers on 
+      --  sales_unioned.customer_id = customers.customer_sk
+    --left join date_dim on 
+      --  sales_unioned.sold_date_id = date_dim.date_sk
 
     order by sales_unioned.sold_date_id
 

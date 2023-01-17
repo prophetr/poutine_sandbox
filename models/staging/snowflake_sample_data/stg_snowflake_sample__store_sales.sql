@@ -35,7 +35,7 @@ final as (
         ss_net_profit as net_profit
 
     from src_store_sales
-    where sold_date_id >= 2452554
+    where sold_date_id >= 2452634
 )
 
 select * from final

@@ -3,6 +3,8 @@ version: 2
 models:
   - name: fct_sales
     description: '{{ doc("fct_sales") }}'
+    config:
+      snowflake_warehouse: "ELT_XS_WH"
     columns:
       - name: sales_id
         description: '{{ doc("int_snowflake_sample__sales_id") }}'
